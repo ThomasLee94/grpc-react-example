@@ -1,0 +1,28 @@
+# Mac OS
+.DS_Store
+
+# Private files
+private.*.*
+
+# Private folders
+private.*/
+
+# Ignore backup files.
+*~
+
+# Ignore Vim swap files.
+.*.swp
+
+# Ignore all bazel-* symlinks. There is no full list since this can change
+# based on the name of the directory bazel is cloned into.
+bazel-*
+
+# Ignore python byte code files
+*.pyc
+
+# Ignore all egg information from any local installations of python packages
+# that we create for terrace and are built by pip.
+*.egg*
+
+# Ignore all mypy cache
+*.mypy_cache
