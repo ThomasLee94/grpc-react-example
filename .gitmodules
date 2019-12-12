@@ -1,0 +1,3 @@
+[submodule "tash"]
+	path = tash
+	url = http://github.com/terrace-co/tash
