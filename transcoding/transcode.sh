@@ -79,8 +79,7 @@ MP4Box \
     -profile dashavc264:live \
     -bs-switching inband \
     -segment-name '' \
-    -url-template \
-    -base-url "https://storage.googleapis.com/${GS_PATH}/manifest.mpd" \
+    -base-url "https://storage.googleapis.com/${GS_PATH}/" \
     -out manifest \
     transcoded/480p.mp4#video:baseURL=v480 \
     transcoded/480p.mp4#audio:baseURL=a480 \
