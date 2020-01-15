@@ -69,6 +69,10 @@ assert_last_command_ok
 
 popd > /dev/null  # transcoded
 
+# ---------------------------- Generate A Video Key ----------------------------
+
+readonly VIDEO_HASH="$(sha256sum transcoded/720p.mp4 | awk '{ print $1 }')"
+
 # ----------------------------------- Segment ----------------------------------
 
 MP4Box \
@@ -79,7 +83,7 @@ MP4Box \
     -profile dashavc264:live \
     -bs-switching inband \
     -segment-name '' \
-    -base-url "https://storage.googleapis.com/${GS_PATH}/" \
+    -base-url "https://storage.googleapis.com/$GS_PATH/$VIDEO_HASH" \
     -out manifest \
     transcoded/480p.mp4#video:baseURL=v480 \
     transcoded/480p.mp4#audio:baseURL=a480 \
@@ -94,7 +98,7 @@ assert_last_command_ok
 
 # ----------------------------------- Upload -----------------------------------
 
-gsutil -m cp -r . "$FLAGS_output_dir"
+gsutil -m cp -n -r . "$FLAGS_output_dir/$VIDEO_HASH"
 assert_last_command_ok
 
 log ok 'Done'
