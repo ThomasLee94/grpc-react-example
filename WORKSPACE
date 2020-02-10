@@ -19,16 +19,3 @@ load("@rules_python//python:pip.bzl", "pip_repositories")
 
 pip_repositories()
 
-# ----------------------Install transcoder dependencies-------------------------
-
-load("@rules_python//python:pip.bzl", "pip_import")
-
-pip_import(
-    name = "transcoder_deps",
-    python_interpreter = "python3",
-    requirements = "//transcoding:requirements.txt",
-)
-
-load("@transcoder_deps//:requirements.bzl", "pip_install")
-
-pip_install()
