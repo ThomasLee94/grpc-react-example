@@ -16,8 +16,16 @@ int Battleship::getCoordinates() {
 }
 
 // Public Functions
-bool Battleship::isHit() {
-  // bool, true if ship was hit or not
+bool Battleship::isHit(int coordinate_x, int coordinate_y) {
+  // true if ship was hit or not
+  if (Battleship::block::coordinate_x == coordinate_x) {
+    if (Battleship::block::coordinate_y == coordinate_y) {
+      return true
+    }
+  }
+
+  return false
+
 }
 
 bool Battleship::collision() {
