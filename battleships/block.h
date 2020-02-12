@@ -3,4 +3,4 @@
 struct Block {
     int coordinate_x;
     int coordinate_y;
-}
+};

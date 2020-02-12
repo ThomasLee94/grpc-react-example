@@ -1,4 +1,3 @@
-#ifndef BATTLESHIP_H_
 #define BATTLESHIP_H_
 
 #include "block.h"
@@ -10,10 +9,10 @@ class BattleShip {
   public:
     int health;
     std::string name;
-    static numOfShips;
+    static int numOfShips;
 
   private:
-    std::vector<block> blocks;
+    std::vector<::Block> blocks;
     bool getCoordinates();
     bool attack();
     bool isHit();
