@@ -13,6 +13,7 @@ cc_library(
     name = "block",
     hdrs = ["block.h"],
     deps = [
+    "//battleships:battleship",
     ],
 )
 

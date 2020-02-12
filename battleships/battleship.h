@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 
+namespace Game {
+namespace Ships {
+
 class BattleShip {
 
   public:
@@ -12,8 +15,8 @@ class BattleShip {
     static int numOfShips;
 
   private:
-    std::vector<::Block> blocks;
-    bool getCoordinates();
+    std::vector<Game::Map::Coordinate> coordinates;
+    int getCoordinates();
     bool attack();
     bool isHit();
     bool collision();
@@ -27,3 +30,6 @@ class BattleShip {
  * Submarine (3)
  * Destroyer (2)
  * */
+
+} // namespace Battleship
+} // namespace Game
