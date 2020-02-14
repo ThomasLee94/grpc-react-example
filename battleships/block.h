@@ -1,14 +1,13 @@
 #ifndef BLOCK_H_
+#define BLOCK_H_
 
-namespace Game {
-namespace Map {
+namespace battleship {
 
-struct Coordinate {
-    int coordinate_x;
-    int coordinate_y;
+struct Block {
+  int coordinate_x;
+  int coordinate_y;
 };
 
-}  // namespace Map
-}  // namespace Game
+}  // namespace battleship
 
-#endif
+#endif  // BLOCK_H_

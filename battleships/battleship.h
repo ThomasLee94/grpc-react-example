@@ -1,26 +1,27 @@
+#ifndef BATTLESHIP_H_
 #define BATTLESHIP_H_
 
-#include "block.h"
 #include <string>
 #include <vector>
 
-namespace Game {
-namespace Ships {
+#include "block.h"
+
+namespace battleship {
 
 class BattleShip {
 
   public:
-    int health;
-    std::string name;
-    static int numOfShips;
+    BattleShip(const int health, const std::string name);
 
-  private:
-    std::vector<Game::Map::Coordinate> coordinates;
-    int getCoordinates();
     bool attack();
-    bool isHit();
+    bool isHit(int coordinate_x, int coordinate_y);
     bool collision();
     bool isSunk();
+
+  private:
+    int health_;
+    std::string name_;
+    std::vector<Block> blocks_;
 };
 
 /* 
@@ -31,5 +32,6 @@ class BattleShip {
  * Destroyer (2)
  * */
 
-} // namespace Battleship
-} // namespace Game
+}  // namespace battleship
+
+#endif  // BATTLESHIP_H_
