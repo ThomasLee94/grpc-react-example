@@ -13,9 +13,10 @@ class BattleShip {
   public:
     BattleShip(const int health, const std::string name);
 
+    int attackPower_;
+
     bool attack();
     bool isHit(int coordinate_x, int coordinate_y);
-    bool collision();
     bool isSunk();
 
   private:

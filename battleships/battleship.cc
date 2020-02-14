@@ -7,10 +7,14 @@
 namespace battleship {
 
 // Constructor
-BattleShip::BattleShip(const int health, const std::string name)
-    : health_(health), name_(name), blocks_(std::vector<Block>()) {}
+BattleShip::BattleShip(const int health, const int attackPower, const std::string name)
+    : health_(health), attackPower_(attackPower), name_(name), blocks_(std::vector<Block>()) {}
 
 // Public Functions
+int attack() {
+    return attackPower;
+}
+
 bool BattleShip::isHit(int coordinate_x, int coordinate_y) {
   // true if ship was hit or not
   for (const Block& block : blocks_) {
@@ -21,11 +25,6 @@ bool BattleShip::isHit(int coordinate_x, int coordinate_y) {
     }
   }
 
-  return false;
-}
-
-bool BattleShip::collision() {
-  // checks whether ships are colliding or not
   return false;
 }
 
