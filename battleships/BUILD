@@ -5,16 +5,13 @@ cc_library(
     srcs = ["battleship.cc"],
     hdrs = ["battleship.h"],
     deps = [
-        "//battleships:block"
+      ":block"
     ],
 )
 
 cc_library(
     name = "block",
     hdrs = ["block.h"],
-    deps = [
-    "//battleships:battleship",
-    ],
 )
 
 cc_library(
@@ -22,6 +19,14 @@ cc_library(
     srcs = ["player.cc"],
     hdrs = ["player.h"],
     deps = [
+        ":battleship",
     ],
 )
 
+cc_binary(
+    name = "main",
+    srcs = ["main.cc"],
+    deps = [
+        ":player",
+    ],
+)

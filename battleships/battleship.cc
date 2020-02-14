@@ -1,43 +1,36 @@
 #include "battleship.h"
+
 #include <string>
 #include <tuple>
 #include <vector>
 
-namespace Game {
-namespace Ships {
+namespace battleship {
 
 // Constructor
-Battleship(
-    const int health, const string name, const int attackPower)
-        : health_(health), name_(name), attackPower_(attackPower),
-          blocks_(std::vector<block>()) {}
-
-// Private Functions
-
-int Battleship::getCoordinates() {
-  // return coordinates of the individual blocks
-}
+BattleShip::BattleShip(const int health, const std::string name)
+    : health_(health), name_(name), blocks_(std::vector<Block>()) {}
 
 // Public Functions
-bool Battleship::isHit(int coordinate_x, int coordinate_y) {
+bool BattleShip::isHit(int coordinate_x, int coordinate_y) {
   // true if ship was hit or not
-  if (Battleship::block::coordinate_x == coordinate_x) {
-    if (Battleship::block::coordinate_y == coordinate_y) {
-      return true
+  for (const Block& block : blocks_) {
+    if (block.coordinate_x == coordinate_x) {
+      if (block.coordinate_y == coordinate_y) {
+        return true;
+      }
     }
   }
 
-  return false
-
+  return false;
 }
 
-bool Battleship::collision() {
+bool BattleShip::collision() {
   // checks whether ships are colliding or not
+  return false;
 }
 
-bool Battleship::isSunk() {
-  return Battleship::health_ <= 0;
+bool BattleShip::isSunk() {
+  return health_ <= 0;
 }
 
-} // Battlship
-} // Game
+}  // namespace battleship
