@@ -9,14 +9,23 @@
 namespace battleship {
 
 class Player {
+    public:
+        Player(const int totalHealth, const std::string name);
     
-  private:
-    int totalHealth;
-    int numShips;
-    bool isWon;
-    bool isLoss;
-    bool collision();
-    std::vector<BattleShip> ships;
+    private:
+        int totalHealth;
+        int numShips;
+
+        BattleShip carrier;
+        BattleShip battleship;
+        BattleShip cruiser;
+        BattleShip submarine;
+        BattleShip destroyer;
+
+        bool isWon;
+        bool isLoss;
+        bool collision();
+        std::vector<BattleShip> ships;
 };
 
 }  // namespace battleship

@@ -7,7 +7,7 @@
 namespace battleship {
 
 // Constructor
-BattleShip::BattleShip(const int health, const int attackPower, const std::string name)
+battleship::BattleShip(const int health, const int attackPower, const std::string name)
     : health_(health), attackPower_(attackPower), name_(name), blocks_(std::vector<Block>()) {}
 
 // Public Functions
