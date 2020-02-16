@@ -22,8 +22,8 @@ class Player {
         BattleShip submarine;
         BattleShip destroyer;
 
-        bool isWon;
-        bool isLoss;
+        bool isWon();
+        bool isLoss();
         bool collision();
         std::vector<BattleShip> ships;
 };
