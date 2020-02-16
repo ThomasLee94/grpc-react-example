@@ -7,17 +7,25 @@
 namespace battleship {
 
 // Constructor
-battleship::BattleShip(const int health, const int attackPower, const std::string name)
+BattleShip::BattleShip(const int health, const int attackPower, const std::string name)
     : health_(health), attackPower_(attackPower), name_(name), blocks_(std::vector<Block>()) {}
 
 // Public Functions
 int attack() {
-    return attackPower;
+    /* 
+     * This function returns the attack power of
+     * the current instance of class "BattleShips"
+     */
+    return attackPower_;
 }
 
 bool BattleShip::isHit(int coordinate_x, int coordinate_y) {
-  // true if ship was hit or not
-  for (const Block& block : blocks_) {
+    /*
+     * This function returns a bool; if the co-ordinates
+     * match a hit it returns true. Otherwise it returns
+     * false.
+     */
+    for (const Block& block : blocks_) {
     if (block.coordinate_x == coordinate_x) {
       if (block.coordinate_y == coordinate_y) {
         return true;
@@ -29,7 +37,11 @@ bool BattleShip::isHit(int coordinate_x, int coordinate_y) {
 }
 
 bool BattleShip::isSunk() {
-  return health_ <= 0;
+    /*
+     * This function returns true if health of current instance
+     * of battleship lowers to 0.
+     */
+    return health_ <= 0;
 }
 
 }  // namespace battleship
