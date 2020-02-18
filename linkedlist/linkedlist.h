@@ -2,8 +2,8 @@
 
 class LinkedList {
   private:
-    node *head;
-    node *tail;
+    Node *head;
+    Node *tail;
     int size;
     void append();
     void prepend();
