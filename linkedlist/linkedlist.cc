@@ -16,5 +16,22 @@ LinkedList::LinkedList(int data[]=NULL) {
 }
 
 void LinkedList::append(){
-  pass
+  // This function insert the given item at the tail of 
+  // this linked list
+  
+  // Crate new node
+  new_node = new Node();
+
+  // check if linkedlist is empty
+  if node.is_empty(){
+    node.head = &new_node;
+    LinkedList.size++;
+  } else {
+    // if nodes already exist, append node after tail
+    node.tail.next = &new_node;
+    LinkedList.size++;
+  }
+
+  // update tail
+  LinkedList.tail = &new_node
 }
