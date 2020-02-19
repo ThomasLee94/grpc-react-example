@@ -8,9 +8,10 @@ class LinkedList {
     Node *head;
     Node *tail;
     int size;
-    void append();
-    void prepend();
-    void insert();
+    bool is_empty();
+    void append(item);
+    void prepend(item);
+    void insert(item);
     
 }
 } // namespace linkedlist

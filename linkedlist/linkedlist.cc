@@ -17,6 +17,14 @@ LinkedList::LinkedList(int data[]=NULL) {
 
 }
 
+bool LinkedList::is_empty() {
+  /*
+   * returns true if linked list is empty,
+   * returns false if it contains one or more items.
+   */
+  return LinkedList.head == NULL;
+}
+
 void LinkedList::append(item){
   /* 
    * This function insert the given item at the tail of 
