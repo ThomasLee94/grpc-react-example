@@ -40,6 +40,24 @@ int LinkedList::get_at_index(){
   return node.data;
 }
 
+Node LinkedList::get_index_node(){
+  // Returns the node at given index
+  
+  // Check if the given index is out of range and if so raise an error
+  if not (index < 0 && index > LinkedList.size){
+    throw std::invalid_argument( "index is out or range" );
+  }
+
+  node = LinkedList.head
+
+  // reassign node to node.next until index is reached
+  for (int i = 0; i <= index; i++){
+      node = node.next
+  }
+
+  return node
+}
+
 void LinkedList::append(item){
   /* 
    * This function insert the given item at the tail of 
