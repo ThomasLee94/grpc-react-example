@@ -25,6 +25,21 @@ bool LinkedList::is_empty() {
   return LinkedList.head == NULL;
 }
 
+int LinkedList::get_at_index(){
+  /*
+   * Return the item at the given index in this linked list, or
+   * raise error if index is out of bounds.
+   */
+
+  node = LinkedList.head;
+
+  for (int i=0; i<=index; i++){
+    node = node.next
+  }
+
+  return node.data;
+}
+
 void LinkedList::append(item){
   /* 
    * This function insert the given item at the tail of 
@@ -72,7 +87,7 @@ void LinkedList::prepend(item){
 void LinkedList::insert(item, index){
   /*
    * This function will insert the given  item at the
-   * given index 
+   * given index or raise error if index is out of bounds.
    */
 
   // case: index is 0 (head)
