@@ -25,7 +25,7 @@ bool LinkedList::is_empty() {
   return LinkedList.head == NULL;
 }
 
-int LinkedList::get_at_index(index){
+int LinkedList::get_at_index(int index){
   /*
    * Return the item at the given index in this linked list, or
    * raise error if index is out of bounds.
@@ -40,7 +40,7 @@ int LinkedList::get_at_index(index){
   return node.data;
 }
 
-Node LinkedList::get_index_node(index){
+Node LinkedList::get_index_node(int index){
   // Returns the node at given index
   
   // Check if the given index is out of range and if so raise an error
@@ -58,7 +58,7 @@ Node LinkedList::get_index_node(index){
   return node
 }
 
-void LinkedList::append(item){
+void LinkedList::append(int item){
   /* 
    * This function insert the given item at the tail of 
    * this linked list
@@ -80,7 +80,7 @@ void LinkedList::append(item){
   LinkedList.size++;
 }
 
-void LinkedList::prepend(item){
+void LinkedList::prepend(int item){
   /* 
    * This function insert the given item at the head
    * this linked list
@@ -102,7 +102,7 @@ void LinkedList::prepend(item){
 
 }
 
-void LinkedList::insert(item, index){
+void LinkedList::insert(int item, int index){
   /*
    * This function will insert the given  item at the
    * given index or raise error if index is out of bounds.
