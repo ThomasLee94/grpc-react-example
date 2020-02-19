@@ -69,4 +69,32 @@ void LinkedList::prepend(item){
 
 }
 
+void LinkedList::insert(item, index){
+  /*
+   * This function will insert the given  item at the
+   * given index 
+   */
+
+  // case: index is 0 (head)
+  if(index==0){
+    LinkedList.prepend(item);
+    return
+  }
+  // case: index is length of ll (tail)
+  if(index==LinkedList.size-1){
+    LinkedList.append(item);
+    return
+  }
+
+  previous_node = LinkedList.get_index_node(index-1);
+  index_node = LinkedList.get_index_node(index);
+  // create node
+  next_node = new Node(item);
+  // update next
+  previous_node.next = &next_node;
+  next_node.next = &index_node;
+  // update size
+  LinkedList.size++; 
+}
+
 } // namespace linkedlist
