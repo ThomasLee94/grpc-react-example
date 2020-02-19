@@ -25,7 +25,7 @@ bool LinkedList::is_empty() {
   return LinkedList.head == NULL;
 }
 
-int LinkedList::get_at_index(){
+int LinkedList::get_at_index(index){
   /*
    * Return the item at the given index in this linked list, or
    * raise error if index is out of bounds.
@@ -40,7 +40,7 @@ int LinkedList::get_at_index(){
   return node.data;
 }
 
-Node LinkedList::get_index_node(){
+Node LinkedList::get_index_node(index){
   // Returns the node at given index
   
   // Check if the given index is out of range and if so raise an error
