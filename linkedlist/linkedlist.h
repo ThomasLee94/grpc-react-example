@@ -4,7 +4,7 @@ namespace linkedlist{
 
 class LinkedList {
   private:
-    LinkedList(data);
+    LinkedList(int data);
     Node *head;
     Node *tail;
     int size;
