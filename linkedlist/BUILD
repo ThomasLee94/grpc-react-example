@@ -4,9 +4,6 @@ package(default_visibility = ["//visibility:public"])
 cc_library(
     name = "node",
     hdrs = ["node.h"],
-    deps = [
-        "//node:node"
-    ],
 )
 
 cc_library(
@@ -14,11 +11,11 @@ cc_library(
     srcs = ["linkedlist.cc"],
     hdrs = ["linkedlist.h"],
     deps = [
-        "//node:node"
+        ":node"
     ],
 )
 
-cc_library(
+cc_binary(
     name = "main",
     srcs = ["main.cc"],
     deps = [
