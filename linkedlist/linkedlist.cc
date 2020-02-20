@@ -120,14 +120,69 @@ void LinkedList::insert(int item, int index){
   }
 
   previous_node = LinkedList.get_index_node(index-1);
+
   index_node = LinkedList.get_index_node(index);
+
   // create node
   next_node = new Node(item);
+
   // update next
   previous_node.next = &next_node;
   next_node.next = &index_node;
+
   // update size
   LinkedList.size++; 
+}
+
+void LinkedList::delete_(int item){
+  // Deletes the given item from the linked list
+
+  node = LinkedList.head;
+
+  // Keep track of previous node
+  previous = NULL;
+
+  // found flag
+  found = false;
+
+  // Iterate until given item is found or node is NULL
+  while (found == false && node !== NULL) {
+    // check if node' data matches item
+    if (item == node.data){
+      found = true;
+    } else {
+      // continue iteration
+      previous = node;
+      node = node.next;
+    }
+  }
+  
+  // end of initial iteration, check if item was found
+  if (found) {
+    // check if node is inbetween head and tail
+    if (node !== LinkedList.head && node !== LinkedList.tail) {
+      previous.next = node.next;
+      node.next = NULL;
+      LinkedList.size--;
+    }
+
+    if (node == LinkedList.head) {
+        LinkedList.head = node.next;
+        node.next = NULL;
+        LinkedList.size--;
+    }
+
+    if (node == LinkedList.tail) {
+      if (previous !== NULL) {
+        previous.next = NULL;
+        LinkedList.size--;
+      }
+
+      LinkedList.tail = previous;
+    }
+  } else {
+    throw std::invalid_argument("item not in linked list");
+  }
 }
 
 } // namespace linkedlist
