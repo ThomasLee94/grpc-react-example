@@ -8,12 +8,13 @@ class LinkedList {
     Node *head;
     Node *tail;
     int size;
-    bool is_empty();
-    int get_at_index(int index);
-    Node get_index_node(int index);
-    void append(int item);
-    void prepend(int item);
-    void insert(int item, int index);
+    bool is_empty(); // checks if ll is empty
+    int get_at_index(int index); // returns data of node at given index
+    Node get_index_node(int index); // returns node obj at given index
+    void append(int item); // appends given item to the end of the ll
+    void prepend(int item); // prepends the given item to the beginning of the ll
+    void insert(int item, int index); // inserts the given item at the given index of ll
+    void delete_(int item); // deletes node containing given item, throws error otherwise.
     
 }
 } // namespace linkedlist
