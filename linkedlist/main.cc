@@ -1,5 +1,7 @@
 #include "linkedlist.cc"
 
+#include <iostream>
+
 namespace linkedlist {
 
 int main() {
@@ -10,8 +12,8 @@ int main() {
   node = linked_list_obj.head;
 
   for (int i=0; i <= linked_list_obj.size; i++) {
-    cout << "----- before deletion -----";
-    cout << node.data;
+    std::cout << "----- before deletion -----";
+    std::cout << node.data;
     node = node.next;
   }
 
@@ -19,8 +21,8 @@ int main() {
 
   
   for (int i=0; i <= linked_list_obj.size; i++) {
-    cout << "***** after deletion *****";
-    cout << node.data;
+    std::cout << "***** after deletion *****";
+    std::cout << node.data;
     node = node.next;
   }
 }
