@@ -17,7 +17,7 @@ LinkedList::LinkedList(int data[]=NULL) {
 
 }
 
-bool LinkedList::is_empty() {
+bool LinkedList::is_empty() const {
   /*
    * returns true if linked list is empty,
    * returns false if it contains one or more items.
