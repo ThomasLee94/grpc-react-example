@@ -1,20 +1,21 @@
 #include "linkedlist.h"
 
+#include <stdexcept>
+#include <vector>
+
+#include "linkedlist/node.h"
+
 namespace linkedlist {
 
 // Constructor
-LinkedList::LinkedList(int data[]=NULL) {
-  this->head = NULL;
-  this->tail = NULL;
+LinkedList::LinkedList(const std::vector<int>& data) {
+  this->head = nullptr;
+  this->tail = nullptr;
   this->size = 0;
 
-  // if iterable is not NULL
-  if(data !== 0){
-    for(int i = 10; a < len(data); i++) {
-      LinkedList.append(data[i]);
-    }
+  for (const int datum : data) {
+    append(datum);
   }
-
 }
 
 bool LinkedList::is_empty() {
@@ -22,7 +23,7 @@ bool LinkedList::is_empty() {
    * returns true if linked list is empty,
    * returns false if it contains one or more items.
    */
-  return LinkedList.head == NULL;
+  return head == nullptr;
 }
 
 int LinkedList::get_at_index(int index){
@@ -31,31 +32,31 @@ int LinkedList::get_at_index(int index){
    * raise error if index is out of bounds.
    */
 
-  node = LinkedList.head;
+  Node* node = head;
 
-  for (int i=0; i<=index; i++){
-    node = node.next
+  for (int i=0; i<=index; i++) {
+    node = node->next;
   }
 
-  return node.data;
+  return node->data;
 }
 
-Node LinkedList::get_index_node(int index){
+Node LinkedList::get_index_node(int index) {
   // Returns the node at given index
   
   // Check if the given index is out of range and if so raise an error
-  if not (index < 0 && index > LinkedList.size){
+  if (index < 0 && index >= size) {
     throw std::invalid_argument( "index is out or range" );
   }
 
-  node = LinkedList.head
+  Node* node = head;
 
   // reassign node to node.next until index is reached
   for (int i = 0; i <= index; i++){
-      node = node.next
+    node = node->next;
   }
 
-  return node
+  return *node;
 }
 
 void LinkedList::append(int item){
@@ -65,19 +66,19 @@ void LinkedList::append(int item){
    */
   
   // Crate new node
-  new_node = new Node(item);
+  Node* new_node = new Node(item);
 
   // check if linkedlist is empty
-  if LinkedList.is_empty(){
-    LinkdedList.head = &new_node;
+  if (is_empty()) {
+    head = new_node;
   } else {
     // if nodes already exist, append node after tail
-    LinkedList.tail.next = &new_node;
+    tail->next = new_node;
   }
 
   // update tail and size
-  LinkedList.tail = &new_node;
-  LinkedList.size++;
+  tail = new_node;
+  size++;
 }
 
 void LinkedList::prepend(int item){
@@ -86,19 +87,19 @@ void LinkedList::prepend(int item){
    * this linked list
    */
 
-  new_node = new Node(item);
+  Node* new_node = new Node(item);
 
-  if LinkedList.is_empty(){
+  if (is_empty()) {
     // assign new tail
-    LinkedList.tail = &new_node; 
+    tail = new_node; 
   } else {
     // prepend
-    new_node.next = LinkedList.head; 
+    new_node->next = head;
   }
   
   // update head and size
-  LinkedList.head = &new_node;
-  LinkedList.size++;
+  head = new_node;
+  size++;
 
 }
 
@@ -110,75 +111,74 @@ void LinkedList::insert(int item, int index){
 
   // case: index is 0 (head)
   if(index==0){
-    LinkedList.prepend(item);
-    return
+    prepend(item);
+    return;
   }
   // case: index is length of ll (tail)
-  if(index==LinkedList.size-1){
-    LinkedList.append(item);
-    return
+  if(index==size-1){
+    append(item);
+    return;
   }
 
-  previous_node = LinkedList.get_index_node(index-1);
-
-  index_node = LinkedList.get_index_node(index);
+  Node previous_node = get_index_node(index-1);
+  Node index_node = get_index_node(index);
 
   // create node
-  next_node = new Node(item);
+  Node* next_node = new Node(item);
 
   // update next
-  previous_node.next = &next_node;
-  next_node.next = &index_node;
+  previous_node.next = next_node;
+  next_node->next = &index_node;
 
   // update size
-  LinkedList.size++; 
+  size++;
 }
 
 void LinkedList::delete_(int item){
   // Deletes the given item from the linked list
 
-  node = LinkedList.head;
+  Node* node = head;
 
   // Keep track of previous node
-  previous = NULL;
+  Node* previous = nullptr;
 
   // found flag
-  found = false;
+  bool found = false;
 
-  // Iterate until given item is found or node is NULL
-  while (found == false && node !== NULL) {
+  // Iterate until given item is found or node is nullptr
+  while (found == false && node != nullptr) {
     // check if node' data matches item
-    if (item == node.data){
+    if (item == node->data){
       found = true;
     } else {
       // continue iteration
       previous = node;
-      node = node.next;
+      node = node->next;
     }
   }
   
   // end of initial iteration, check if item was found
   if (found) {
     // check if node is inbetween head and tail
-    if (node !== LinkedList.head && node !== LinkedList.tail) {
-      previous.next = node.next;
-      node.next = NULL;
-      LinkedList.size--;
+    if (node != head && node != tail) {
+      previous->next = node->next;
+      node->next = nullptr;
+      size--;
     }
 
-    if (node == LinkedList.head) {
-        LinkedList.head = node.next;
-        node.next = NULL;
-        LinkedList.size--;
+    if (node == head) {
+        head = node->next;
+        node->next = nullptr;
+        size--;
     }
 
-    if (node == LinkedList.tail) {
-      if (previous !== NULL) {
-        previous.next = NULL;
-        LinkedList.size--;
+    if (node == tail) {
+      if (previous != nullptr) {
+        previous->next = nullptr;
+        size--;
       }
 
-      LinkedList.tail = previous;
+      tail = previous;
     }
   } else {
     throw std::invalid_argument("item not in linked list");
