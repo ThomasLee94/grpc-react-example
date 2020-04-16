@@ -8,7 +8,7 @@
 namespace board {
 
 Board::Board(const int rows, const int columns) {
-    grid_ = grid_[columns][rows];
+    grid_ = grid_[columns][rows*2];
 }
 
 void Board::placeShip(
