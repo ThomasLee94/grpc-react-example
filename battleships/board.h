@@ -9,6 +9,7 @@ class Board {
 
         void placeShip(int y_coordinate, int x_coordinate)
 }
+
 } // namespace board
 
 #endif //BOARD_H_
