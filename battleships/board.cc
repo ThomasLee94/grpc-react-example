@@ -35,7 +35,7 @@ void Board::placeShip(
     // horizontal ship - y values remain the same
     if (std::abs(x_start - x_end) > 1) {
         for (int i = x_start; i < x_end, i++) {
-            if (grid_[y_start][i] != 1) {
+            if (grid_[y_start][i] == 1) {
                 throw "Ship collides with another ship";
             }
             grid_[y_start][i] = 1
