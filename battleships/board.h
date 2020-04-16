@@ -7,7 +7,7 @@ class Board {
     public:
         Board(const int rows, const int columns);
         void placeShip(const int y_coordinate_max, const int x_coordinate_max);
-        void fireMissile(const int y_coordinate, const int x_coordinate);
+        bool fireMissile(const int y_coordinate, const int x_coordinate);
     
     private:
         double grid_[columns][rows]; 

@@ -44,4 +44,13 @@ void Board::placeShip(
 
 }
 
+bool Board::fireMissile(const int y, const int x) {
+    // other players grid?
+    if (grid_[y_coordinate][x_start]) == 1 {
+        return true
+    }
+
+    return false
+}
+
 } // namespace board
