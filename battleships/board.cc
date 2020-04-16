@@ -18,7 +18,7 @@ void Board::placeShip(
         const int x_end) {
     // ensuring given coordinates are within the bounds of the grid
     if (y_start >= rows || y_end > rows || x_start >= columns || x_end > columns) {
-
+        throw "Ship is either placed out of bounds or collides with another ship";
     }
 
     // ensuring ship placements doesnt collide with a ship that has been placed
