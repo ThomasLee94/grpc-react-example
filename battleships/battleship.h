@@ -1,17 +1,17 @@
-#ifndef BATTLESHIP_H_
-#define BATTLESHIP_H_
+#ifndef SHIP_H_
+#define SHIP_H_
 
 #include <string>
 #include <vector>
 
 #include "block.h"
 
-namespace battleship {
+namespace ship {
 
-class BattleShip {
+class Ship {
 
   public:
-    BattleShip(const int health, const std::string name);
+    Ship(const int health, const std::string name);
 
     int attackPower_;
 
@@ -35,4 +35,4 @@ class BattleShip {
 
 }  // namespace battleship
 
-#endif  // BATTLESHIP_H_
+#endif  // SHIP_H_

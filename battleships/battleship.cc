@@ -1,13 +1,13 @@
-#include "battleship.h"
+#include "ship.h"
 
 #include <string>
 #include <tuple>
 #include <vector>
 
-namespace battleship {
+namespace ship {
 
 // Constructor
-BattleShip::BattleShip(const int health, const int attackPower, const std::string name)
+Ship::Ship(const int health, const int attackPower, const std::string name)
     : health_(health), attackPower_(attackPower), name_(name), blocks_(std::vector<Block>()) {}
 
 // Public Functions
@@ -19,7 +19,7 @@ int attack() {
     return attackPower_;
 }
 
-bool BattleShip::isHit(int coordinate_x, int coordinate_y) {
+bool Ship::isHit(int coordinate_x, int coordinate_y) {
     /*
      * This function returns a bool; if the co-ordinates
      * match a hit it returns true. Otherwise it returns
