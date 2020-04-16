@@ -5,10 +5,10 @@ namespace board {
 
 class Board {
     public:
-        Board(const int y_coordinate, const int x_coordinate, const int rows, const int columns);
+        Board(const int rows, const int columns);
         double GRID[columns][rows]; 
 
-        void placeShip(int y_coordinate, int x_coordinate)
+        void placeShip(const int y_coordinate_max, const int x_coordinate_max)
 }
 
 } // namespace board
