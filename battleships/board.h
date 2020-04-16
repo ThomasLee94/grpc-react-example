@@ -6,7 +6,11 @@ namespace board {
 class Board {
     public:
         Board(const int rows, const int columns);
-        void placeShip(
+        void placeShipVert(
+            const int y_start, const int y_end, 
+            const int x_start, const int x_end, 
+            const int player);
+        void placeShipHorizontal(
             const int y_start, const int y_end, 
             const int x_start, const int x_end, 
             const int player);
