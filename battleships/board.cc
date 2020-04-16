@@ -37,8 +37,6 @@ void Board::placeShipVert(
             
         }
     }
-    
-    
 
 }
 

@@ -8,10 +8,10 @@ class Board {
         Board(const int rows, const int columns);
         void placeShipVert(
             const int y_start, const int y_end, 
-            const int x_start, const int x_end, 
+            const int x_start, 
             const int player);
         void placeShipHorizontal(
-            const int y_start, const int y_end, 
+            const int y_start,
             const int x_start, const int x_end, 
             const int player);
         bool fireMissile(const int y, const int x, const int player);
