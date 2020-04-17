@@ -3,7 +3,7 @@
 namespace battleship {
 
 Board::Board(const int rows, const int columns) {
-    grid_ = grid_[columns][rows*2];
+    grid_ = grid_[columns][rows];
 }
 
 void Board::placeShipVert(
@@ -25,10 +25,10 @@ void Board::placeShipVert(
                 grid_[i][x_start] = 1
             }
 
-            if (grid_[i+rows][x_start] == 1) {
+            if (grid_[i][x_start] == 1) {
                     throw "Ship collides with another ship";
                 }
-            grid_[i+rows][x_start] = 1
+            grid_[i][x_start] = 1
             
         }
     }
@@ -55,10 +55,10 @@ void Board::placeShipHorizontal(
                 grid_[y_start][i] = 1
             } 
 
-            if (grid_[y_start+rows][i] == 1) {
+            if (grid_[y_start][i] == 1) {
                     throw "Ship collides with another ship";
                 }
-            grid_[y_start+rows][i] = 1
+            grid_[y_start][i] = 1
         }
     }
 }
@@ -73,7 +73,7 @@ bool Board::fireMissile(const int y, const int x, const int player) {
     }
     
 
-    if (grid_[y+rows][x] == 1) {
+    if (grid_[y][x] == 1) {
         return true
     }
 
