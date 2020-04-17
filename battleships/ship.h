@@ -25,14 +25,6 @@ class Ship {
     std::vector<Block> blocks_;
 };
 
-/* 
- * Carrier (5)
- * Battleship (4)
- * Cruiser (3)
- * Submarine (3)
- * Destroyer (2)
- * */
-
 }  // namespace battleship
 
 #endif  // SHIP_H_
