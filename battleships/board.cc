@@ -1,5 +1,4 @@
 #include "board.h"
-#include "ship.h"
 
 namespace board {
 

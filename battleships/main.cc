@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "battleships/player.h"
+#include "battleships/board.h"
 
 int main(int argc, char** argv) {
   /*
@@ -38,20 +38,11 @@ int main(int argc, char** argv) {
   */
 
     // Init grid
-    const auto rows = 10;
-    const auto columns = 10;
-    auto GRID = new double[columns][rows];
+    grid = board
 
-    // Assign grid
-    
-    for (int y = 0; y < columns; y++) {
-        for (int x = 0; x < rows; x++) {
-            GRID[y][x] = 0;
-        }
-    }
-
+    // print grid
     void print_grid() {
-        cout << "  0 1 2 3 4 5 6 7 8 9" << endl;
+        cout << "  0 0 0 0 0 0 0 0 0  " << endl;
         cout << "---------------------" << endl;
 
         for (int y = 0 ; y < columns, y++) {
