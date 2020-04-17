@@ -68,15 +68,12 @@ bool Board::fireMissile(const int y, const int x, const int player) {
         if (grid_[y][x] == 1) {
             return true
         }
-
         return false
     }
-    
 
     if (grid_[y][x] == 1) {
         return true
     }
-
     return false 
 }
 
