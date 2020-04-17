@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-#include "block.h"
-
 namespace battleship {
 
 class Ship {
@@ -22,7 +20,6 @@ class Ship {
   private:
     int health_;
     std::string name_;
-    std::vector<Block> blocks_;
 };
 
 }  // namespace battleship
