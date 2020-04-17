@@ -43,19 +43,5 @@ int main(int argc, char** argv) {
     Player player_2(5, "cenz")
 
     // print grid
-    void print_grid() {
-        cout << "  0 0 0 0 0 0 0 0 0  " << endl;
-        cout << "---------------------" << endl;
-
-        for (int y = 0 ; y < columns, y++) {
-            for (int x = 0; x < rows; x++) {
-                cout << GRID[y][x] << "";
-            }
-            cout << endl;
-        }
-    }
-
-    bool MakeMove() {
-      
-    }
+   
 }
