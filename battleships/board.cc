@@ -1,9 +1,5 @@
 #include "board.h"
-#include "block.h"
 #include "ship.h"
-
-#include <string>
-#include <vector>
 
 namespace board {
 
@@ -68,13 +64,21 @@ void Board::placeShipHorizontal(
     }
 }
 
-bool Board::fireMissile(const int y, const int x) {
-    // other players grid?
-    if (grid_[y_coordinate][x_start]) == 1 {
+bool Board::fireMissile(const int y, const int x, const int player) {
+    if player == 1 {
+        if (grid_[y][x] == 1) {
+            return true
+        }
+
+        return false
+    }
+    
+
+    if (grid_[y+rows][x] == 1) {
         return true
     }
 
-    return false
+    return false 
 }
 
 } // namespace board
