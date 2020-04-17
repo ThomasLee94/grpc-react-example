@@ -1,20 +1,27 @@
 #ifndef BOARD_H_
 #define BOARD_H_
 
-namespace board {
+namespace battleship {
 
 class Board {
     public:
         Board(const int rows, const int columns);
-        void placeShipVert(
+        void PlaceShipVert(
             const int y_start, const int y_end, 
             const int x_start, 
             const int player);
-        void placeShipHorizontal(
+        void PlaceShipHorizontal(
             const int y_start,
             const int x_start, const int x_end, 
             const int player);
-        bool fireMissile(const int y, const int x, const int player);
+        bool FireMissile(const int y, const int x, const int player);
+        
+        Ship carrier;
+        Ship battleship;
+        Ship cruiser;
+        Ship submarine;
+        Ship destroyer;
+
     
     private:
         double grid_[columns][rows]; 

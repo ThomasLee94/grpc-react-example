@@ -6,7 +6,7 @@
 
 #include "block.h"
 
-namespace ship {
+namespace battleship {
 
 class Ship {
 

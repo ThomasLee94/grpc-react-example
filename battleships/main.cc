@@ -37,8 +37,10 @@ int main(int argc, char** argv) {
   }
   */
 
-    // Init grid
-    grid = board
+    // Init vars
+    Board board(10, 10)
+    Player player_1(5, "tom")
+    Player player_2(5, "cenz")
 
     // print grid
     void print_grid() {
@@ -51,5 +53,9 @@ int main(int argc, char** argv) {
             }
             cout << endl;
         }
+    }
+
+    bool MakeMove() {
+      
     }
 }

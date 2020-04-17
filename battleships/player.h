@@ -16,15 +16,10 @@ class Player {
         int totalHealth;
         int numShips;
 
-        BattleShip carrier;
-        BattleShip battleship;
-        BattleShip cruiser;
-        BattleShip submarine;
-        BattleShip destroyer;
+        const Board* board;
 
-        bool isWon();
-        bool isLoss();
-        bool collision();
+        bool IsWon();
+        bool IsLoss();
         std::vector<BattleShip> ships;
 };
 
