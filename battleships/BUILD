@@ -1,32 +1,32 @@
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
-    name = "battleship",
-    srcs = ["battleship.cc"],
-    hdrs = ["battleship.h"],
-    deps = [
-      ":block"
-    ],
+    name = "ship",
+    srcs = ["ship.cc"],
+    hdrs = ["ship.h"],
 )
 
 cc_library(
-    name = "block",
-    hdrs = ["block.h"],
+    name = "board",
+    srcs = ["board.cc"],
+    hdrs = ["board.h"],
+    deps = [
+        ":ship",
+    ],
 )
 
 cc_library(
     name = "player",
     srcs = ["player.cc"],
     hdrs = ["player.h"],
-    deps = [
-        ":battleship",
-    ],
 )
 
 cc_binary(
     name = "main",
     srcs = ["main.cc"],
     deps = [
+        ":ship",
         ":player",
+        ":board",
     ],
 )

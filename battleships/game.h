@@ -1,19 +1,20 @@
 #ifndef GAME_MANAGER_H_
 #define GAME_MANAGER_H_
 
+#include <vector>
+
 #include "ship.h" 
 #include "player.h"
 #include "board.h"
 
-#include <vector>
-
 namespace battleship {
 
-class GameManager {
-    GameManager* CreateGame();
+class Game {
+    Game* CreateGame();
 
     public:
         void AddPlayer();
+        std::string ShowBoard();
 
     private:
         std::vector<PlayerData> player_data_;

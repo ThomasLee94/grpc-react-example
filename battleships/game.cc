@@ -1,4 +1,4 @@
-#include "gamemanager.h"
+#include "game.h"
 
 #include "vector"
 
@@ -10,14 +10,18 @@ namespace battleship {
         PlayerData(Player& player, Board& board): player_(player), board_(board) {} 
     }
 
-    GameManager* GameManager::CreateGame() {
-        GameManager* manager = new GameManager();
-        manager.AddPlayer();
-        return manager;
+    Game* Game::CreateGame() {
+        Game* game = new Game();
+        game.AddPlayer();
+        return game;
     }
 
-    void GameManager::AddPlayer() {
+    void Game::AddPlayer() {
         PlayerData data = PlayerData(Player(), Board());
         player_data_.push_back(data);
+    }
+
+    void Game::Run() {
+        // make sure the game only runs until someone wins or loses
     }
 }
