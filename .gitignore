@@ -18,6 +18,13 @@ private.*/
 # based on the name of the directory bazel is cloned into.
 bazel-*
 
+# Ignore compiled object code and executable files
+*.so
+*.o
+*.a
+*.out
+*.exe
+
 # Ignore python byte code files
 *.pyc
 
