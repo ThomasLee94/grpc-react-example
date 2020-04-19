@@ -1,6 +1,12 @@
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
+    name = "random",
+    srcs = ["random.cc"],
+    hdrs = ["random.h"],
+)
+
+cc_library(
     name = "board",
     srcs = ["board.cc"],
     hdrs = ["board.h"],
@@ -11,5 +17,6 @@ cc_binary(
     srcs = ["main.cc"],
     deps = [
         ":board",
+        ":random",
     ],
 )
