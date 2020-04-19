@@ -1,6 +1,7 @@
 #include <unistd.h>  // Need usleep function (Unix systems only: Mac and Linux)
 #include <iostream>
 
+#include "random.h"
 #include "board.h"
 
 using namespace battleship;
@@ -78,6 +79,38 @@ void PlaceShipsFixed(Board& board) {
     usleep(timestep);  // Sleep after placing ship
 }
 
+void PlaceShipsRandom(Board& board) {
+    // Place ships at random coordinates
+    std::cout << "Placing ships at random coordinates..." << std::endl;
+    usleep(2 * timestep);  // Sleep before placing ships
+    const int kShips = 5;
+    RandomGenerator random;
+    int row, col, size, count = 0;
+    bool vertical, result;
+    std::string orientation;
+    for (int ship = 1; ship <= kShips; ++ship) {
+        // Generate random ship orientation, size, and coordinates
+        vertical = static_cast<bool>(random.RandomInt(0, 1));
+        size = random.RandomInt(1, (vertical ? board.rows_ : board.cols_));
+        row = random.RandomInt(0, board.rows_ - (vertical ? size : 1));
+        col = random.RandomInt(0, board.cols_ - (vertical ? 1 : size));
+        orientation = (vertical ? "vertically" : "horizontally");
+        std::cout << "Placing ship #" << ship << " " << orientation <<
+            " at " << Board::CoordStr(row, col) << " with size " << size;
+        if (vertical)
+            result = board.PlaceShipVertical(row, row + size - 1, col);
+        else
+            result = board.PlaceShipHorizontal(row, col, col + size - 1);
+        count += static_cast<int>(result);
+        std::cout << " -> " << (result ? "succeeded" : "failed") << std::endl;
+        board.Print();
+        usleep(timestep);  // Sleep after placing ship
+    }
+    std::cout << "Placed " << kShips << " ships at random coordinates (" <<
+        count << " succeeded, " << kShips - count << " failed)" << std::endl;
+    usleep(timestep);  // Sleep after placing all ships
+}
+
 void PlaceShipsUser(Board& board) {
     // Place ships at user-chosen coordinates
     const int kShips = 3;
@@ -140,6 +173,33 @@ void FireMissilesFixed(Board& board) {
     usleep(timestep);  // Sleep after firing all missiles
 }
 
+void FireMissilesRandom(Board& board) {
+    // Fire missiles at random coordinates
+    std::cout << "Firing missiles at random coordinates..." << std::endl;
+    usleep(2 * timestep);  // Sleep before firing missiles
+    const int kMissiles = board.rows_ * board.cols_ / 4;
+    RandomGenerator random;
+    int row, col, count = 0;
+    bool result;
+    for (int missile = 1; missile <= kMissiles; ++missile) {
+        // Generate random missile coordinates
+        row = random.RandomInt(0, board.rows_ - 1);
+        col = random.RandomInt(0, board.cols_ - 1);
+        std::cout << "Firing missile #" << missile << " at " <<
+            Board::CoordStr(row, col);
+        result = board.FireMissile(row, col);
+        count += static_cast<int>(result);
+        std::cout << " -> " << (result ? "HIT" : "MISS") << std::endl;
+        // Print board after half and all missiles have been fired
+        if (missile % (kMissiles / 2) == 0)
+            board.Print();
+        usleep(timestep / 2);  // Sleep after firing missile
+    }
+    std::cout << "Fired " << kMissiles << " missiles at random coordinates (" <<
+        count << " hit, " << kMissiles - count << " missed)" << std::endl;
+    usleep(timestep);  // Sleep after firing all missiles
+}
+
 void FireMissilesUser(Board& board) {
     // Fire missiles at user-chosen coordinates
     const int kMissiles = 10;
@@ -173,7 +233,9 @@ int main(int argc, const char * argv[]) {
     Board board = Board(rows, cols);
     board.Print();
     PlaceShipsFixed(board);
+    PlaceShipsRandom(board);
     // PlaceShipsUser(board);
     FireMissilesFixed(board);
+    FireMissilesRandom(board);
     // FireMissilesUser(board);
 }
