@@ -1,10 +1,11 @@
 #include <unistd.h>  // Need usleep function (Unix systems only: Mac and Linux)
+#include <string.h>
 #include <iostream>
 
-#include "random.h"
-#include "board.h"
+#include "battleship/random.h"
+#include "battleship/board.h"
 
-using namespace battleship;
+using ::battleship;
 
 static const int timestep = 1e6;  // Delay to use when sleeping: 1e6 = 1 second
 
@@ -21,7 +22,8 @@ int * AskUserForBoardSize() {
         std::cout << "Chosen size is invalid: " << Board::CoordStr(rows, cols);
         rows = 6;
         cols = 8;
-        std::cout << " -> Default: " << Board::CoordStr(rows, cols) << std::endl;
+        std::cout << " -> Default: "
+            << Board::CoordStr(rows, cols) << std::endl;
     }
     int *size = new int[2];
     size[0] = rows;
@@ -29,7 +31,7 @@ int * AskUserForBoardSize() {
     return size;
 }
 
-void PlaceShipsFixed(Board& board) {
+void PlaceShipsFixed(const Board& board) {
     // Place ships at fixed coordinates
     bool result;
     std::cout << "Placing ships at fixed coordinates..." << std::endl;
@@ -79,7 +81,7 @@ void PlaceShipsFixed(Board& board) {
     usleep(timestep);  // Sleep after placing ship
 }
 
-void PlaceShipsRandom(Board& board) {
+void PlaceShipsRandom(const Board& board) {
     // Place ships at random coordinates
     std::cout << "Placing ships at random coordinates..." << std::endl;
     usleep(2 * timestep);  // Sleep before placing ships
@@ -111,7 +113,7 @@ void PlaceShipsRandom(Board& board) {
     usleep(timestep);  // Sleep after placing all ships
 }
 
-void PlaceShipsUser(Board& board) {
+void PlaceShipsUser(const Board& board) {
     // Place ships at user-chosen coordinates
     const int kShips = 3;
     int row, col, size, count = 0;
@@ -146,7 +148,7 @@ void PlaceShipsUser(Board& board) {
     usleep(timestep);  // Sleep after placing all ships
 }
 
-void FireMissilesFixed(Board& board) {
+void FireMissilesFixed(const Board& board) {
     // Fire missiles at fixed coordinates
     std::cout << "Firing missiles at fixed coordinates..." << std::endl;
     usleep(2 * timestep);  // Sleep before firing missiles
@@ -173,7 +175,7 @@ void FireMissilesFixed(Board& board) {
     usleep(timestep);  // Sleep after firing all missiles
 }
 
-void FireMissilesRandom(Board& board) {
+void FireMissilesRandom(const Board& board) {
     // Fire missiles at random coordinates
     std::cout << "Firing missiles at random coordinates..." << std::endl;
     usleep(2 * timestep);  // Sleep before firing missiles
@@ -200,7 +202,7 @@ void FireMissilesRandom(Board& board) {
     usleep(timestep);  // Sleep after firing all missiles
 }
 
-void FireMissilesUser(Board& board) {
+void FireMissilesUser(const Board& board) {
     // Fire missiles at user-chosen coordinates
     const int kMissiles = 10;
     int row, col, count = 0;

@@ -24,6 +24,7 @@ repos:
         language: system
         files: WORKSPACE|(BUILD$)|(\.bzl$)
     -   id: cpplint
+        args: ['--filter=-legal/copyright']
         name: Lint C++ files
         entry: cpplint --quiet
         language: system
