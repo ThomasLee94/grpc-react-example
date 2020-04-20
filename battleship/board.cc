@@ -4,9 +4,8 @@
 
 namespace battleship {
 
-Board::Board(const int rows, const int cols) {
-    rows_ = rows;
-    cols_ = cols;
+Board::Board(const int rows, const int cols)
+        : rows_(rows), cols_(cols) {
     // grid_ = new int[rows_][cols_]();
     // This should initialize a contiguous 2D array but throws a compiler error:
     // "only the first dimension of an allocated array may have dynamic size"
@@ -108,7 +107,34 @@ bool Board::IsInBounds(const int row, const int col) const {
             0 <= col && col < cols_);
 }
 
-std::string Board::CoordStr(const int row, const int col) {
+bool Board::IsFull() const {
+    // Loop over each row and column to check if all grid cells are full
+    for (int row = 0; row < rows_; ++row) {
+        for (int col = 0; col < cols_; ++col) {
+            if (grid_[row][col] == 0)
+                return false;  // Found empty cell
+        }
+    }
+    return true;  // All cells are full
+}
+
+const int Board::Rows() const {
+    return rows_;
+}
+
+const int Board::Cols() const {
+    return cols_;
+}
+
+const int * Board::Size() const {
+    // Array to store board size: (rows, cols)
+    int *size = new int[2]();
+    size[0] = rows_;
+    size[1] = cols_;
+    return size;
+}
+
+const std::string Board::CoordStr(const int row, const int col) {
     // Format given coordinates as string: (row, col)
     return "(" + std::to_string(row) + ", " + std::to_string(col) + ")";
     // Using std::to_string is recommended: https://stackoverflow.com/a/900035
@@ -118,7 +144,7 @@ std::string Board::CoordStr(const int row, const int col) {
     // return sstm.str();
 }
 
-std::string Board::CellStr(const int row, const int col) const {
+const std::string Board::CellStr(const int row, const int col) const {
     const int cell = grid_[row][col];  // Get cell value to show conditionally
     return (cell == 0 ? " " :  // Show empty cells as " " blank for visibility
            (cell > 0 ? "S" : "*"));  // Show ships as "S" and missiles as "*"

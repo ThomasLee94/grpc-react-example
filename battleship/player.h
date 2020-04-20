@@ -2,27 +2,37 @@
 #define PLAYER_H_
 
 #include <string>
-#include <vector>
 
-#include "battleship.h"
+#include "board.h"
 
 namespace battleship {
 
 class Player {
-    public:
-        Player(const int totalHealth, const std::string name);
-    
-    private:
-        int totalHealth;
-        int numShips;
+  public:
+    Player(const int id, const std::string name);
+    const int ID() const;
+    const std::string Name() const;
+    virtual const int * GetBoardSize() const;
+    virtual const int * GetShipCoords(const Board& board) const;
+    virtual const int * GetMissileCoords(const Board& board) const;
 
-        const Board* board;
+  private:
+    const int id_;
+    const std::string name_;
+};  // class Player
 
-        bool IsWon();
-        bool IsLoss();
-        std::vector<BattleShip> ships;
-};
+class RandomPlayer : public Player {
+  public:
+    RandomPlayer(const int id, const std::string name);
+    const int * GetBoardSize() const;
+    const int * GetShipCoords(const Board& board) const;
+    const int * GetMissileCoords(const Board& board) const;
+
+  private:
+    const int id_;
+    const std::string name_;
+};  // class RandomPlayer
 
 }  // namespace battleship
 
-#endif
+#endif  // PLAYER_H_

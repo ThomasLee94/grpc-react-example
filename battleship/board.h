@@ -13,13 +13,17 @@ class Board {
     bool PlaceShipHorizontal(const int row, const int col_start, const int col_end);
     bool FireMissile(const int row, const int col);
     bool IsInBounds(const int row, const int col) const;
-    static std::string CoordStr(const int row, const int col);
-    std::string CellStr(const int row, const int col) const;
+    bool IsFull() const;
+    const int Rows() const;
+    const int Cols() const;
+    const int * Size() const;
+    static const std::string CoordStr(const int row, const int col);
+    const std::string CellStr(const int row, const int col) const;
     void Print() const;
-    int rows_;
-    int cols_;
 
   private:
+    const int rows_;
+    const int cols_;
     // int grid_[][];  // 2D array of ints
     // We want to declare a contiguous 2D array but this throws a compiler error:
     // "array has incomplete element type 'int []'" here and in the constructor:

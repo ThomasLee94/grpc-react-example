@@ -1,28 +1,34 @@
-#ifndef GAME_MANAGER_H_
-#define GAME_MANAGER_H_
+#ifndef GAME_H_
+#define GAME_H_
 
 #include <vector>
 
-#include "ship.h" 
 #include "player.h"
 #include "board.h"
 
 namespace battleship {
 
 class Game {
-    Game* CreateGame();
+  public:
+    Game(const int num_players = 2);
+    ~Game();
+    void Init();
+    void Play();
+    const int NumPlayers() const;
+    const int CurrentPlayer() const;
+    const bool IsStarted() const;
+    const bool IsWon() const;
+    const int Winner() const;
 
-    public:
-        void AddPlayer();
-        std::string ShowBoard();
+  private:
+    int num_players_;
+    int current_player_;
+    bool is_started_;
+    bool is_won_;
+    std::vector<Player*> players_;
+    std::vector<Board*> boards_;
+};  // class Game
 
-    private:
-        std::vector<PlayerData> player_data_;
-        Board board;
-        Ship ship;
-        Player player;
-        void Run();
-}
-}
+}  // namespace battleship
 
-#endif
+#endif  // GAME_H_
