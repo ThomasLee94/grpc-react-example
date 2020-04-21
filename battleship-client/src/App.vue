@@ -9,11 +9,8 @@ import Grid from "./components/Grid";
 
 export default {
   name: "App",
-  components: {},
-  data() {
-    return {
-      grid: []
-    };
+  components: {
+    Grid
   }
 };
 </script>

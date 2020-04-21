@@ -12,7 +12,6 @@ message AddMessageRequest {
     string author = 2;
 }
 
-
 message GetMessageRequest {}
 
 message GetMessageResponse {
