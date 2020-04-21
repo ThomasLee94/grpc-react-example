@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package battleship_service;
+
+message MessageTest {
+    string body = 1;
+    string author = 2;
+}
+
+message AddMessageRequest {
+    string body = 1;
+    string author = 2;
+}
+
+
+message GetMessageRequest {}
+
+message GetMessageResponse {
+    repeated MessageTest message = 1;
+}
+
+service MessageService {
+    rpc AddMessage(AddNoteRequest) returns (Message){}
+}
