@@ -1,5 +1,5 @@
 
-package(default_visibility = ["//src/battleship_services/proto/pingpong:__subpackages__"])
+package(default_visibility = ["//src/battleship_services/proto/battleship_services:__subpackages__"])
 
 load("@com_github_grpc_grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
 
