@@ -3,6 +3,7 @@
 #include <unistd.h>  // Need usleep function (Unix systems only: Mac and Linux)
 #include <iostream>
 #include <vector>
+#include <string>
 
 static const int timestep = 0.5e6;  // Delay to use when sleeping: 1e6 = 1 second
 

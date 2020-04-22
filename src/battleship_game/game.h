@@ -10,7 +10,7 @@ namespace battleship {
 
 class Game {
   public:
-    Game(const int num_players = 2);
+    explicit Game(const int num_players = 2);
     ~Game();
     void Init();
     void Play();

@@ -1,8 +1,7 @@
 #include "player.h"
 
-#include <string>
+#include <string.h>
 #include <iostream>
-
 #include "random.h"
 
 namespace battleship {

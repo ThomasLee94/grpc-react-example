@@ -21,3 +21,8 @@ message GetMessageResponse {
 service MessageService {
     rpc AddMessage(AddNoteRequest) returns (Message){}
 }
+
+// point proto
+// grid proto
+// board proto
+// protos for all of my classes
