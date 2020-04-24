@@ -1,4 +1,4 @@
-#include "src/battleship_service/proto/unary_service_impl.h"
+#include "src/battleship_service/battleship_service_impl.h"
 
 #include "grpc++/grpc++.h"
 

@@ -3,7 +3,7 @@
 
 #include "grpc++/grpc++.h"
 
-#include "src/battleshipservice/proto/services.grpc.pb.h"
+#include "src/battleship_service/proto/services.grpc.pb.h"
 
 namespace battleshipservice {
 
@@ -16,3 +16,5 @@ class UnaryServiceImpl final : public ::battleshipservice::UnaryService::Service
 };
 
 }  // namespace battleshipservice
+
+#endif

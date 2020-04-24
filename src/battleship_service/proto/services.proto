@@ -18,7 +18,7 @@ message BattleShipResponse {
   string message = 1;
 }
 
-message BattleShipResponse {
+message BattleShipStreamingResponse {
   message BattleShipStreamEvent {
     string message = 1;
   }
