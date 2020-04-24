@@ -1,0 +1,1 @@
+#define RETURN_IF_NE(expr1, expr2) RETURN_IF_TRUE((expr1) != (expr2))
