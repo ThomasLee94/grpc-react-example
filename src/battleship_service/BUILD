@@ -22,5 +22,6 @@ cc_binary(
         "//src/battleship_game:game",
         "@com_github_grpc_grpc//:grpc++",
         "//src/battleship_service/proto:services_grpc_proto",
+        "@com_github_grpc_grpc//:grpc++_reflection",
     ],
 )
