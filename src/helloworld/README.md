@@ -253,9 +253,8 @@ When you have both `protoc` and `protoc-gen-grpc-web` installed, you can now
 run this command:
 
 ```sh
-$ protoc -I=. helloworld.proto \
-  --js_out=import_style=commonjs:. \
-  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+protoc -I=$DIR helloworld.proto \
+  --js_out=import_style=commonjs:$OUT_DIR
 ```
 
 After the command runs successfully, you should now see two new files generated

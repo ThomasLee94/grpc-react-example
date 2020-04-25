@@ -12,5 +12,8 @@
     "lodash": "^4.6.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "protoc-gen-grpc-web": "^1.0.5"
   }
 }
