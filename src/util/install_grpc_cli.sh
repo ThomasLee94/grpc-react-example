@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get -y install build-essential autoconf libtool pkg-config
 sudo apt-get -y install libgflags-dev
 if ! [[ -f ~/bin/grpc_cli ]]; then
