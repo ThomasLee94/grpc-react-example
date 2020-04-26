@@ -12,7 +12,8 @@ To generate the protobuf messages and client service stub class from your
 
 To install the above, run `sh install_grpc_js_deps.sh`
 
-If you are left with executables, make sure they are both discoverable from your PATH.
+**If you are left with executables, make sure they are both discoverable from your PATH.**
+  - For example, I moved my `protoc-gen-grpc-web` executable to my `.local/bin` PATH on linux. 
 
 For example, in MacOS, you can do:
 
