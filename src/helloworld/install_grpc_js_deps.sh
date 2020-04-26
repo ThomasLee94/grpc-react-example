@@ -1,4 +1,4 @@
-FLAGS_protoc_version="3.10."
+FLAGS_protoc_version="3.10.0"
 FLAGS_grpc_web_plugin_version="1.0.6"
 
 # ------------------------------ Download protoc -------------------------------
