@@ -34,3 +34,6 @@ bazel-*
 
 # Ignore all mypy cache
 *.mypy_cache
+
+# Ignore tash
+tash/
