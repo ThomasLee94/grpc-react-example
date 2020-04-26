@@ -3,7 +3,6 @@
 This guide is intended to help you get started with gRPC-Web with a simple
 Hello World example. For more information about the gRPC-Web project as a
 whole, please visit the [main repo](https://github.com/grpc/grpc-web).
-```
 
 ## Generate Protobuf Messages and Client Service Stub
 
