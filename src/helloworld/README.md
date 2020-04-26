@@ -4,7 +4,7 @@ This guide is intended to help you get started with gRPC-Web with a simple
 Hello World example. For more information about the gRPC-Web project as a
 whole, please visit the [main repo](https://github.com/grpc/grpc-web).
 
-## Generate Protobuf Messages and Client Service Stub
+## Install `proto` & `protoc-gen-grpc-web`
 
 To generate the protobuf messages and client service stub class from your
 `.proto` definitions, we need the `protoc` binary and the
@@ -22,20 +22,18 @@ $ sudo mv ~/Downloads/protoc-gen-grpc-web-1.0.7-darwin-x86_64 \
 $ chmod +x /usr/local/bin/protoc-gen-grpc-web
 ```
 
-When you have both `protoc` and `protoc-gen-grpc-web` installed, you can now
-run this command:
+After they are installed, run the following command to generate `_pb` files:
 
 ```sh
-protoc -I=$DIR helloworld.proto \
-  --js_out=import_style=commonjs:$OUT_DIR
+protoc -I=. helloworld.proto \
+  --js_out=import_style=commonjs:.
 ```
 
 After the command runs successfully, you should now see two new files generated
 in the current directory:
 
- - `helloworld_pb.js`: this contains the `HelloRequest` and `HelloReply`
-   classes
- - `helloworld_grpc_web_pb.js`: this contains the `GreeterClient` class
+ - `helloworld_pb.js`
+ - `helloworld_grpc_web_pb.js`
  
 These are also the 2 files that our `client.js` file imported earlier in the
 example.
