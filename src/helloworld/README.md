@@ -29,6 +29,12 @@ protoc -I=. helloworld.proto \
   --js_out=import_style=commonjs:.
 ```
 
+```sh
+protoc -I=. helloworld.proto \
+  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+
+```
+
 After the command runs successfully, you should now see two new files generated
 in the current directory:
 
