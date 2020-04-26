@@ -3,11 +3,6 @@
 This guide is intended to help you get started with gRPC-Web with a simple
 Hello World example. For more information about the gRPC-Web project as a
 whole, please visit the [main repo](https://github.com/grpc/grpc-web).
-
-All the code for this example can be found in this current directory.
-
-```sh
-$ cd net/grpc/gateway/examples/helloworld
 ```
 
 ## Generate Protobuf Messages and Client Service Stub
@@ -16,13 +11,9 @@ To generate the protobuf messages and client service stub class from your
 `.proto` definitions, we need the `protoc` binary and the
 `protoc-gen-grpc-web` plugin.
 
-You can download the `protoc-gen-grpc-web` protoc plugin from
-[here](https://grpc.io/docs/tutorials/basic/web/):
+To install the above, run `sh install_grpc_js_deps.sh`
 
-If you don't already have `protoc` installed, you will have to download it
-first from [here](https://command-not-found.com/protoc).
-
-Make sure they are both executable and are discoverable from your PATH.
+If you are left with executables, make sure they are both discoverable from your PATH.
 
 For example, in MacOS, you can do:
 
