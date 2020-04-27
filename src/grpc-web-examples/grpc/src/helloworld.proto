@@ -1,4 +1,4 @@
-/ Copyright 2018 Google LLC
+// Copyright 2018 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -31,12 +31,12 @@ service Greeter {
   rpc SayHelloNested(TestNested) returns (HelloReply);
 }
 
-message FullName{
+message FullName {
   string name = 1;
   string lastName = 2;
 }
 
-message TestNested{
+message TestNested {
   FullName myName = 1;
 }
 
