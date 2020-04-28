@@ -1,6 +1,20 @@
 ## With GRPC
 fetch stubs (`pb` & `grpc_web_pb`)
 
+To generate stubs, run the following commands
+
+```sh
+$DIR=/home/tom/Code/battleships/src/grpc-web-examples/grpc_react/server/proto
+$OUT_DIR=/home/tom/Code/battleships/src/grpc-web-examples/grpc_react/client/src/generated
+protoc -I=$DIR echo.proto \
+  --js_out=import_style=commonjs:$OUT_DIR
+```
+
+```sh
+protoc -I=$DIR echo.proto \
+  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$OUT_DIR
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
