@@ -7,19 +7,19 @@ cc_library(
         "echo_service_impl.h",
             ],
     deps = [
-        "//src/grpc-web-examples/grpc_react/server/proto:echo_proto",
+        "//src/grpc-web-examples/grpc_react/server/proto:echo_grpc_proto",
         "@com_github_grpc_grpc//:grpc++",
     ],
 )
 
 
 cc_binary(
-    name = "server",
-    srcs = ["server.cc"],
+    name = "echo_server",
+    srcs = ["echo_server.cc"],
     deps = [
         ":echo_service_impl",
+        "//src/grpc-web-examples/grpc_react/server/proto:echo_grpc_proto",
         "@com_github_grpc_grpc//:grpc++",
-        "//src/grpc-web-examples/grpc_react/server/proto:echo_proto",
         "@com_github_grpc_grpc//:grpc++_reflection",
     ],
 )
