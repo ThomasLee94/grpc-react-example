@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <string>
 
-#include "echo.grpc.pb.h"
+#include ".generated/echo.grpc.pb.h"
 #include "echo_service_impl.h"
 
 using grpc::Server;

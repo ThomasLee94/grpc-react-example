@@ -23,7 +23,7 @@
 #include <unistd.h>
 #include <string>
 
-#include "echo.grpc.pb.h"
+#include ".generated/echo.grpc.pb.h"
 
 class EchoServiceImpl final :
     public grpc::gateway::testing::EchoService::Service {

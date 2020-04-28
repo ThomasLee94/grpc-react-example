@@ -23,8 +23,7 @@
 #include <unistd.h>
 #include <string>
 
-// generate .ph file
-#include "echo.grpc.pb.h"
+#include ".generated/echo.grpc.pb.h"
 
 using grpc::ServerContext;
 using grpc::ServerWriter;
