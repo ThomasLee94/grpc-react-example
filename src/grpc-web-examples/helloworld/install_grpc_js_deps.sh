@@ -1,19 +1,21 @@
-FLAGS_protoc_version="3.10."
-FLAGS_grpc_web_plugin_version="1.0.6"
+# FLAGS_protoc_version="3.10."
+# FLAGS_grpc_web_plugin_version="1.0.6"
 readonly TMP_DIR="$(mktemp -d)"
 
 # ------------------------------ Download protoc -------------------------------
 
-# echo 'Downloading protoc.'
+echo 'Downloading protoc.'
 
-# PROTOC_URL="https://github.com/protocolbuffers/protobuf/releases/download/v${FLAGS_protoc_version:?}/protoc-${FLAGS_protoc_version:?}-linux-x86_64.zip"
-# wget "$PROTOC_URL" -O protoc.zip -q --show-progress
+PROTOC_URL="https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/protobuf-cpp-3.11.4.zip"
+echo "$PROTOC_URL"
+wget "$PROTOC_URL" -O protoc.zip -q --show-progress
 
-# unzip -q protoc.zip
+unzip -q protoc.zip
 
-# mv bin/protoc "$TMP_DIR/protoc"
+sudo mv protobuf-3.11.4/bin/protoc /usr/bin
+sudo mv protobuf-3.11.4/include/* /usr/include
 
-# echo 'protoc installed!'
+echo 'protoc installed!'
 
 # ------------------------ Download protoc-gen-grpc-web ------------------------
 
