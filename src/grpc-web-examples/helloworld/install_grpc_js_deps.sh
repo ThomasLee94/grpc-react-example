@@ -1,6 +1,6 @@
 # FLAGS_protoc_version="3.10."
 # FLAGS_grpc_web_plugin_version="1.0.6"
-readonly TMP_DIR="$(mktemp -d)"
+# readonly TMP_DIR="$(mktemp -d)"
 
 # ------------------------------ Download protoc -------------------------------
 
