@@ -1,8 +1,8 @@
-#include <grpcpp/grpcpp.h>
+#include "grpc++/grpc++.h"
 #include <unistd.h>
 #include <string>
 
-#include ".generated/echo.grpc.pb.h"
+#include "src/grpc-web-examples/grpc_react/server/proto/echo.grpc.pb.h"
 #include "echo_service_impl.h"
 
 using grpc::Server;

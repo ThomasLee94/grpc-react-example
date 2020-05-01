@@ -20,14 +20,13 @@
  */
 
 #include "grpc++/grpc++.h"
-#include <grpcpp/grpcpp.h>
 #include <unistd.h>
 #include <string>
 
-#include ".generated/echo.grpc.pb.h"
+#include "src/grpc-web-examples/grpc_react/server/proto/echo.grpc.pb.h"
 
 class EchoServiceImpl final :
-    public grpc::gateway::testing::EchoService::Service {
+    public echo::EchoService::Service {
  public:
   EchoServiceImpl();
   ~EchoServiceImpl() override;
@@ -35,26 +34,8 @@ class EchoServiceImpl final :
   void CopyClientMetadataToResponse(grpc::ServerContext* context);
   grpc::Status Echo(
       grpc::ServerContext* context,
-      const grpc::gateway::testing::EchoRequest* request,
-      grpc::gateway::testing::EchoResponse* response) override;
-  grpc::Status EchoAbort(
-      grpc::ServerContext* context,
-      const grpc::gateway::testing::EchoRequest* request,
-      grpc::gateway::testing::EchoResponse* response) override;
-  grpc::Status NoOp(
-      grpc::ServerContext* context,
-      const grpc::gateway::testing::Empty* request,
-      grpc::gateway::testing::Empty* response) override;
-  grpc::Status ServerStreamingEcho(
-      grpc::ServerContext* context,
-      const grpc::gateway::testing::ServerStreamingEchoRequest* request,
-      grpc::ServerWriter<
-      grpc::gateway::testing::ServerStreamingEchoResponse>* writer) override;
-  grpc::Status ServerStreamingEchoAbort(
-      grpc::ServerContext* context,
-      const grpc::gateway::testing::ServerStreamingEchoRequest* request,
-      grpc::ServerWriter<
-      grpc::gateway::testing::ServerStreamingEchoResponse>* writer) override;
+      const echo::EchoRequest* request,
+      echo::EchoResponse* response) override;
 };
 
 #endif  // NET_GRPC_GATEWAY_EXAMPLES_ECHO_ECHO_SERVICE_IMPL_H_
