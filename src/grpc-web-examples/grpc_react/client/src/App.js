@@ -1,29 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Grid from './Grid';
+
 import './App.css';
 
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Square {
+  constructor(type) {
+    this.type = type
+  }
 }
 
+class App extends Component {
+  constructor() {
+    super()
+    const cells = []
 
+    for (let i = 0; i < 100; i += 1) {
+      const type = Math.random() < 0.8 ? 0 : 1
+      const square = new Square(type)
+      cells.push(square)
+    }
+
+    this.state = {
+      cells
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {/* add exported function? */}
+        <Grid cells={this.state.cells} />
+      </div>
+    );
+  }
+}
 
 export default App;

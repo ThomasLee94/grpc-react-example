@@ -3,20 +3,20 @@ const {EchoRequest} = require('../../generated/src/echo_pb.js');
 
 const client = new EchoServiceClient('localhost:8080');
 
-class EchoService {
-    async echoServiceEndpointRPC() {
-        const request = new EchoRequest();
-        request.setMessage("Testing the echo rpc!");
 
-        const output = await client.Echo(request) 
-        if (!output) {
-            console.log("Something went wrong")
-        } else {
-            return output;
-        }
+export async function echoServiceEndpointRPC() {
+    const request = new EchoRequest();
+    request.setMessage("Testing the echo rpc!");
+
+    const output = await client.Echo(request) 
+    if (!output) {
+        console.log("Something went wrong")
+    } else {
+        return output;
     }
-
 }
+
+
 
 // const client = new EchoServiceClient('localhost:8080');
 // const request = new EchoRequest();
@@ -33,5 +33,3 @@ class EchoService {
 // const echoapp = new App();
 // const response = await echoapp.Echo("Yo")
 // response.getMessage()
-
-export default new EchoService();
