@@ -16,8 +16,6 @@ export async function echoServiceEndpointRPC() {
     }
 }
 
-
-
 // const client = new EchoServiceClient('localhost:8080');
 // const request = new EchoRequest();
 

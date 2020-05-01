@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Grid from './Grid';
+import Grid from './ui/components/Grid';
 
 import './App.css';
 
