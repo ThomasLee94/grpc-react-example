@@ -36,6 +36,8 @@
     ]
   },
   "devDependencies": {
-    "protoc-gen-grpc": "^1.4.0"
+    "protoc-gen-grpc": "^1.4.0",
+    "protoc-gen-ts": "^0.1.1",
+    "typescript": "^3.8.3"
   }
 }

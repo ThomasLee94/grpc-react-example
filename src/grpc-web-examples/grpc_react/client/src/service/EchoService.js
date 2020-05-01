@@ -1,19 +1,20 @@
-const {EchoServiceClient} = require('../../generated/src/echo_grpc_web_pb.js');
-const {EchoRequest} = require('../../generated/src/echo_pb.js');
+/*eslint-disabled */
+//@ts-nocheck
+
+// import {EchoServiceClient} from '../generated/src/echo_grpc_web_pb'
+import EchoRequest from '../generated/src/echo.ts'
+import EchoServiceClient from '../generated/src/echo_grpc_web_pb'
+// const EchoServiceClient = require('../generated/src/echo_grpc_web_pb.js');
+
 
 const client = new EchoServiceClient('localhost:8080');
-
 
 export async function echoServiceEndpointRPC() {
     const request = new EchoRequest();
     request.setMessage("Testing the echo rpc!");
 
     const output = await client.Echo(request) 
-    if (!output) {
-        console.log("Something went wrong")
-    } else {
-        return output;
-    }
+    return output
 }
 
 // const client = new EchoServiceClient('localhost:8080');
@@ -31,3 +32,7 @@ export async function echoServiceEndpointRPC() {
 // const echoapp = new App();
 // const response = await echoapp.Echo("Yo")
 // response.getMessage()
+
+// module.exports = {
+//     echoServiceEndpointRPC
+// }

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Grid from './ui/components/Grid';
-
 import './App.css';
+
+import { echoServiceEndpointRPC } from './service/EchoService.js';
+
+let output = echoServiceEndpointRPC()
 
 class Square {
   constructor(type) {
@@ -29,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* add exported function? */}
+        <h1>{output}</h1>
         <Grid cells={this.state.cells} />
       </div>
     );
