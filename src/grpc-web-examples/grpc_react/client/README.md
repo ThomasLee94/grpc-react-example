@@ -1,3 +1,6 @@
+## Install
+run `npm run setup`
+
 ## With GRPC
 fetch stubs (`pb` & `grpc_web_pb`)
 
