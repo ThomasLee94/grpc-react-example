@@ -16,7 +16,7 @@
  *
  */
 
-var PROTO_PATH = __dirname + '/helloworld.proto';
+var PROTO_PATH = __dirname + '/proto/helloworld.proto';
 
 var grpc = require('grpc');
 var _ = require('lodash');

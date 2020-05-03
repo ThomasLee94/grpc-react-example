@@ -117,3 +117,8 @@ You can also browse to the envoy admin via
 ```
 localhost:9901
 ```
+
+To kill docker container
+```
+docker kill $(docker ps -q)
+```
