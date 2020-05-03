@@ -3,8 +3,6 @@
 run `npm run generate`
 run `npm run setup`
 
-------------
-
 This step downloads the necessary pre-requisites, and serves as the base docker image for the subsequent docker images.
 ```
 $ docker build -t grpcweb/common \
@@ -13,13 +11,13 @@ $ docker build -t grpcweb/common \
 
 ------------
 
-Run gRPC backend
+## Run gRPC backend
 
 `bazel run :<server>`
 
 -------------
 
-Run Envoy Proxy
+## Run Envoy Proxy
 
 This step runs the Envoy proxy, and listens on port 8080. Any gRPC-Web browser requests will be forwarded to port 9090.
 ```
@@ -29,7 +27,7 @@ $ docker run -d -p 8080:8080 --link node-server:node-server grpcweb/envoy
 ```
 --------------
 
-Serve static JS/HTML contents
+## Serve static JS/HTML contents
 
 This steps compiles the front-end gRPC-Web client into a static .JS file, and we use a simple server to serve up the JS/HTML static contents.
 
@@ -40,7 +38,7 @@ $ docker run -d -p 8081:8081 grpcweb/commonjs-client
 ```
 
 --------------
-Run the example from your browser
+## Run the example from your browser
 
 Finally, open a browser tab, and inspect
 
