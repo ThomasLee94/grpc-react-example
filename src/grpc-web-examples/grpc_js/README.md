@@ -39,8 +39,8 @@ protoc -I=. helloworld.proto \
 After the command runs successfully, you should now see two new files generated
 in the current directory:
 
- - `helloworld_pb.js`
- - `helloworld_grpc_web_pb.js`
+ - `<proto_name>_pb.js`
+ - `<proto_name>_grpc_web_pb.js`
  
 These are also the 2 files that our `client.js` file imported earlier in the
 example.
@@ -68,7 +68,7 @@ run the 3 processes all in the background.
  1. Run the NodeJS gRPC Service. This listens at port `:9090`.
 
  ```sh
- $ node server.js &
+ $ bazel run :<server_name>
  ```
 
  2. Run the Envoy proxy. The `envoy.yaml` file configures Envoy to listen to
