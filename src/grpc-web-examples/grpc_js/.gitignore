@@ -1,0 +1,6 @@
+dist/
+*_pb.js
+node_modules/
+package-lock.json
+/protoc
+/protobuf-3.11.4
