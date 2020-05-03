@@ -14,19 +14,19 @@
 
 FROM grpcweb/common
 
-ARG EXAMPLE_DIR=/github/battleships/src/grpc-web-examples/helloworld
+ARG DOCKER_DIR=/github/battleships/src/grpc-web-examples/grpc_js/docker
 
-RUN protoc -I=$EXAMPLE_DIR helloworld.proto \
+RUN protoc -I=$DIR echo.proto \
 --js_out=import_style=commonjs:\
-$EXAMPLE_DIR/commonjs-example \
+$DIR/commonjs-example \
 --grpc-web_out=import_style=commonjs,mode=grpcwebtext:\
-$EXAMPLE_DIR/commonjs-example
+$DIR/commonjs-example
 
-RUN cd $EXAMPLE_DIR/commonjs-example && \
+RUN cd $DIR/commonjs-example && \
   npm install && \
   npm link grpc-web && \
   npx webpack && \
-  cp echotest.html /var/www/html && \
+  cp echohtml.html /var/www/html && \
   cp dist/main.js /var/www/html/dist
 
 EXPOSE 8081
