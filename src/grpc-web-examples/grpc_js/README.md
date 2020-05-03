@@ -1,50 +1,52 @@
-# gRPC-Web Hello World Guide
+# Installs & builds
 
-This guide is intended to help you get started with gRPC-Web with a simple
-Hello World example. For more information about the gRPC-Web project as a
-whole, please visit the [main repo](https://github.com/grpc/grpc-web).
+run `npm run generate`
+run `npm run setup`
 
-## Install `proto` & `protoc-gen-grpc-web`
+------------
 
-To generate the protobuf messages and client service stub class from your
-`.proto` definitions, we need the `protoc` binary and the
-`protoc-gen-grpc-web` plugin.
-
-To install the above, run `sh install_grpc_js_deps.sh`
-
-**If you are left with executables, make sure they are both discoverable from your PATH.**
-  - For example, I moved my `protoc-gen-grpc-web` executable to my `.local/bin` PATH on linux. 
-
-For example, in MacOS, you can do:
-
+This step downloads the necessary pre-requisites, and serves as the base docker image for the subsequent docker images.
 ```
-$ sudo mv ~/Downloads/protoc-gen-grpc-web-1.0.7-darwin-x86_64 \
-  /usr/local/bin/protoc-gen-grpc-web
-$ chmod +x /usr/local/bin/protoc-gen-grpc-web
+$ docker build -t grpcweb/common \
+  -f net/grpc/gateway/docker/common/Dockerfile .
 ```
 
-After they are installed, run the following command to generate `_pb` files:
+------------
 
-```sh
-protoc -I=. helloworld.proto \
-  --js_out=import_style=commonjs:.
+Run gRPC backend
+
+`bazel run :<server>`
+
+-------------
+
+Run Envoy Proxy
+
+This step runs the Envoy proxy, and listens on port 8080. Any gRPC-Web browser requests will be forwarded to port 9090.
+```
+$ docker build -t grpcweb/envoy \
+  -f net/grpc/gateway/docker/envoy/Dockerfile .
+$ docker run -d -p 8080:8080 --link node-server:node-server grpcweb/envoy
+```
+--------------
+
+Serve static JS/HTML contents
+
+This steps compiles the front-end gRPC-Web client into a static .JS file, and we use a simple server to serve up the JS/HTML static contents.
+
+```
+$ docker build -t grpcweb/commonjs-client  \
+  -f net/grpc/gateway/docker/commonjs_client/Dockerfile .
+$ docker run -d -p 8081:8081 grpcweb/commonjs-client
 ```
 
-```sh
-protoc -I=. helloworld.proto \
-  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.
+--------------
+Run the example from your browser
 
-```
+Finally, open a browser tab, and inspect
 
-After the command runs successfully, you should now see two new files generated
-in the current directory:
+http://localhost:8081/echohtml.html
 
- - `<proto_name>_pb.js`
- - `<proto_name>_grpc_web_pb.js`
- 
-These are also the 2 files that our `client.js` file imported earlier in the
-example.
-
+<!-- 
 ## Compile the Client JavaScript Code
 
 Next, we need to compile the client side JavaScript code into something that
@@ -116,7 +118,7 @@ Hello! World
 You can also browse to the envoy admin via
 ```
 localhost:9901
-```
+``` -->
 
 To kill docker container
 ```
