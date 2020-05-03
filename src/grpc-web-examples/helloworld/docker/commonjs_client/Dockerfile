@@ -16,7 +16,7 @@ FROM grpcweb/common
 
 ARG EXAMPLE_DIR=/github/battleships/src/grpc-web-examples/helloworld
 
-RUN protoc -I=$EXAMPLE_DIR echo.proto \
+RUN protoc -I=$EXAMPLE_DIR helloworld.proto \
 --js_out=import_style=commonjs:\
 $EXAMPLE_DIR/commonjs-example \
 --grpc-web_out=import_style=commonjs,mode=grpcwebtext:\

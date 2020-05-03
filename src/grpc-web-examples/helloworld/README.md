@@ -76,7 +76,7 @@ run the 3 processes all in the background.
  above).
 
  ```sh
- $ docker build -t helloworld/envoy -f ./envoy.Dockerfile .
+ $ docker build -t helloworld/envoy -f ./docker/envoy/envoy.Dockerfile .
  $ docker run -d -p 8080:8080 -p 9901:9901 --network=host helloworld/envoy
  ```
 
