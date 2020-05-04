@@ -1,6 +1,9 @@
-DIR="./../server/proto"
-OUT_DIR="./src/generated/src"
+ROOT_DIR=$(git rev-parse --show-toplevel)
+DIR="$ROOT_DIR/src/grpc-web-examples/grpc_react/server/proto"
+OUT_DIR="$ROOT_DIR/src/grpc-web-examples/grpc_react/client/src/generated/src"
 
-protoc-gen-grpc -I="$DIR" echo.proto --ts_out=$OUT_DIR
+rm -r "$OUT_DIR"
+mkdir -p "$OUT_DIR"
 
-protoc-gen-grpc -I="$DIR" echo.proto --grpc-web_out=mode=grpcwebtext:$OUT_DIR
+protoc-gen-grpc --proto_path="$DIR" echo.proto --js_out=import_style=commonjs:$OUT_DIR --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$OUT_DIR
+#protoc-gen-grpc --proto_path="$DIR" echo.proto --grpc-web_out=mode=grpcwebtext:$OUT_DIR

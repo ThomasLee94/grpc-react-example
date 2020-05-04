@@ -1,5 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
+load("@io_bazel_rules_docker//cc:image.bzl", "cc_image", )
+
 cc_library(
     name = "echo_service_impl",
     srcs = [
@@ -22,4 +24,10 @@ cc_binary(
         "@com_github_grpc_grpc//:grpc++",
         "@com_github_grpc_grpc//:grpc++_reflection",
     ],
+)
+
+cc_image(
+    name = "echo_image",
+    binary = ":echo_server",
+    base = "@cpp_base//image"
 )

@@ -5,23 +5,16 @@
  */
 
 // GENERATED CODE -- DO NOT EDIT!
-
-
-goog.provide('proto.echo.EchoServiceClient');
-goog.provide('proto.echo.EchoServicePromiseClient');
-
-goog.require('grpc.web.GrpcWebClientBase');
-goog.require('grpc.web.AbstractClientBase');
-goog.require('grpc.web.ClientReadableStream');
-goog.require('grpc.web.Error');
-goog.require('grpc.web.MethodDescriptor');
-goog.require('grpc.web.MethodType');
-goog.require('proto.echo.EchoRequest');
-goog.require('proto.echo.EchoResponse');
+/* eslint-disable */
+//@ts-nocheck
 
 
 
-goog.scope(function() {
+const grpc = {};
+grpc.web = require('grpc-web');
+
+const proto = {};
+proto.echo = require('./echo_pb.js');
 
 /**
  * @param {string} hostname
@@ -169,5 +162,5 @@ proto.echo.EchoServicePromiseClient.prototype.echo =
 };
 
 
-}); // goog.scope
+module.exports = proto.echo;
 

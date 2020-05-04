@@ -1,20 +1,28 @@
 /*eslint-disabled */
 //@ts-nocheck
+import { promisify } from 'util';
+import {EchoServiceClient} from '../generated/src/echo_grpc_web_pb';
+import {EchoRequest, EchoResponse} from '../generated/src/echo_pb'
 
-// import {EchoServiceClient} from '../generated/src/echo_grpc_web_pb'
-import EchoRequest from '../generated/src/echo.ts'
-import EchoServiceClient from '../generated/src/echo_grpc_web_pb'
-// const EchoServiceClient = require('../generated/src/echo_grpc_web_pb.js');
-
-
-const client = new EchoServiceClient('localhost:8080');
+const client = new EchoServiceClient('http://localhost:8080', null, null);
 
 export async function echoServiceEndpointRPC() {
     const request = new EchoRequest();
     request.setMessage("Testing the echo rpc!");
+    console.log('here')
 
-    const output = await client.Echo(request) 
-    return output
+    const call = client.echo(request, {'custom-header-1': 'value1'},
+  (err, response) => {
+      console.log(err)
+    console.log(response.getMessage());
+  });
+call.on('status', (status) => {
+  // ...
+});
+    
+    
+    console.log('yeet')
+    return 
 }
 
 // const client = new EchoServiceClient('localhost:8080');

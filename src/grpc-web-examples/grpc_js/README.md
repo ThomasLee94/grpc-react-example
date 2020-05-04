@@ -38,7 +38,7 @@ This steps compiles the front-end gRPC-Web client into a static .JS file, and we
 ```
 $ docker build -t grpcweb/commonjs_client  \
   -f docker/commonjs_client/Dockerfile .
-$ docker run -d -p 8081:8081 grpcweb/commonjs-client
+$ docker run -d -p 8081:8081 grpcweb/commonjs_client
 ```
 
 --------------

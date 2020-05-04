@@ -4,10 +4,13 @@ import './App.css';
 
 import { echoServiceEndpointRPC } from './service/EchoService.js';
 
-let output = echoServiceEndpointRPC()
+let output = echoServiceEndpointRPC().then(()=>{}).catch(()=>{})
 
 class Square {
+  squares = 0;
   constructor(type) {
+    Square.squares += 1;
+    this.key = Square.squares
     this.type = type
   }
 }
@@ -32,8 +35,8 @@ class App extends Component {
     return (
       <div className="App">
         {/* add exported function? */}
-        <h1>{output}</h1>
-        <Grid cells={this.state.cells} />
+        
+        
       </div>
     );
   }

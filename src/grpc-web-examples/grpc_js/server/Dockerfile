@@ -12,22 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM grpcweb/common
+FROM envoyproxy/envoy:v1.14.1
 
-ARG DOCKER_DIR=/github/battleships/src/grpc-web-examples/grpc_js/docker
+COPY ./envoy.yaml /etc/envoy/envoy.yaml
 
-# RUN protoc -I=$DIR echo.proto \
-# --js_out=import_style=commonjs:\
-# $DIR/commonjs-example \
-# --grpc-web_out=import_style=commonjs,mode=grpcwebtext:\
-# $DIR/commonjs-example
-
-RUN cd $DIR/commonjs_client && \
-  npm install && \
-  npm link grpc-web && \
-  npx webpack && \
-  cp echohtml.html /var/www/html && \
-  cp dist/main.js /var/www/html/dist
-
-EXPOSE 8081
-CMD ["nginx"]
+CMD /usr/local/bin/envoy -c /etc/envoy/envoy.yaml
