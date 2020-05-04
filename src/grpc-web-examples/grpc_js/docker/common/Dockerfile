@@ -12,25 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM grpcweb/prereqs
+FROM node:10-stretch
 
-COPY . /github/grpc-web
+RUN apt-get -qq update && apt-get -qq install -y \
+  unzip
 
-RUN cd /github/grpc-web && \
-  git checkout . && \
-  rm -rf third_party && \
-  git checkout third_party && \
-  git clean -f -d -x && \
-  ./scripts/init_submodules.sh
+WORKDIR /tmp
 
-RUN cd /github/grpc-web && \
-  make install-plugin
+RUN curl -sSL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/\
+protoc-3.11.4-linux-x86_64.zip -o protoc.zip && \
+  unzip -qq protoc.zip && \
+  cp ./bin/protoc /usr/local/bin/protoc
 
-RUN cd /github/grpc-web/packages/grpc-web && \
-  npm install && \
-  npm run build && \
-  npm link
+RUN curl -sSL https://github.com/grpc/grpc-web/releases/download/1.0.7/\
+protoc-gen-grpc-web-1.0.7-linux-x86_64 -o /usr/local/bin/protoc-gen-grpc-web && \
+  chmod +x /usr/local/bin/protoc-gen-grpc-web
 
-RUN cp /github/grpc-web/net/grpc/gateway/examples/echo/nginx_simple.conf \
-  /etc/nginx/nginx.conf && \
-  mkdir -p /var/www/html/dist
+WORKDIR /var/www/html/dist
+
+WORKDIR /github/grpc-web
+
+RUN git clone https://github.com/grpc/grpc-web .
