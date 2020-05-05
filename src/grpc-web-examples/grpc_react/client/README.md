@@ -1,16 +1,14 @@
 ## Install & Builds
-run `npm run generate` to generate stubs
-
-run `npm run setup`
-
-run `sh run_envoy.sh` to build and connect proxy layer
-
 run `bazel run :echo_server` from `grpc_react/server`
 
+Run the following in `grpc_react/client`
+  - run `npm run generate` to generate stubs
 
-## Available Scripts
+  - run `npm run setup`
 
-In the project directory, you can run:
+  - run `sh run_envoy.sh` to build and connect proxy layer
+
+  - run `npm run start`
 
 ### `yarn start`
 
