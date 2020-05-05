@@ -9,7 +9,7 @@ using grpc::Server;
 using grpc::ServerBuilder;
 
 void RunServer() {
-  std::string server_address("0.0.0.0:9090");
+  std::string server_address("0.0.0.0:50051");
   EchoServiceImpl service;
   ServerBuilder builder;
   builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());

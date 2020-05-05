@@ -78,6 +78,15 @@ http_archive(
     url = "https://github.com/grpc/grpc-proto/archive/5ce8e3e598b805a1e0372062913f24b0715fdefc.zip",
 )
 
+# GFlags
+
+http_archive(
+    name = "com_github_gflags_gflags",
+    sha256 = "63ae70ea3e05780f7547d03503a53de3a7d2d83ad1caaa443a31cb20aea28654",
+    strip_prefix = "gflags-2.2.2",
+    url = "https://github.com/gflags/gflags/archive/v2.2.2.tar.gz",
+)
+
 # GLog
 
 http_archive(

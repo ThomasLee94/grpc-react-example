@@ -7,6 +7,6 @@ container_image(
     name = "cc_image",
     base = DISTROLESS_CC_BASE,
     layers = [
-        "//server/docker/grpc_health_client:layer",
+        "//server/docker/layers/grpc_health_client:layer",
     ],
 )

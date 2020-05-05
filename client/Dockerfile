@@ -4,9 +4,6 @@ FROM node:current-alpine
 RUN mkdir -p /dock/client
 WORKDIR /dock/client
 
-# add `/app/node_modules/.bin` to $PATH
-# ENV PATH /dock/client/node_modules/.bin:$PATH
-
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
