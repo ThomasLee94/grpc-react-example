@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import Grid from './Grid';
+import Grid from './ui/components/Grid';
 import './App.css';
 
+import { echoServiceEndpointRPC } from './service/EchoService.js';
+
+let output = echoServiceEndpointRPC().then(()=>{}).catch(()=>{})
+
 class Square {
+  squares = 0;
   constructor(type) {
+    Square.squares += 1;
+    this.key = Square.squares
     this.type = type
   }
 }
-
-
 
 class App extends Component {
   constructor() {
@@ -29,7 +34,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Grid cells={this.state.cells} />
+        {/* add exported function? */}
+        
+        
       </div>
     );
   }
