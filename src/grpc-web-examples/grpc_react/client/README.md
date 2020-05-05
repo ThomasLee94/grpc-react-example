@@ -1,7 +1,10 @@
 ## Install & Builds
 run `npm run generate` to generate stubs
+
 run `npm run setup`
+
 run `sh run_envoy.sh` to build and connect proxy layer
+
 run `bazel run :echo_server` from `grpc_react/server`
 
 
