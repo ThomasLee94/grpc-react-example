@@ -31,3 +31,11 @@ cc_image(
     binary = ":echo_server",
     base = "@cpp_base//image"
 )
+
+load("@io_bazel_rules_docker//container:layer.bzl", "container_layer")
+
+container_layer(
+    name = "layer",
+    directory = "/bin/",
+    files = [":grpc_health_client"],
+)

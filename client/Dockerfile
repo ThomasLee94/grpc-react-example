@@ -1,21 +1,26 @@
 FROM node:current-alpine
+
 # Create app directory
-WORKDIR /usr/src/app
+RUN mkdir -p /dock/client
+WORKDIR /dock/client
+
+# add `/app/node_modules/.bin` to $PATH
+# ENV PATH /dock/client/node_modules/.bin:$PATH
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./
+COPY package.json /dock/client
+COPY package-lock.json /dock/client
+COPY src/generated/src /dock/client/generated/src
 
 RUN npm install
-RUN npm run generate
-RUN npm run setup
 # If you are building your code for production
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY . .
+COPY . /dock/client
 
-EXPOSE 8080
+EXPOSE 3001
 
 CMD ["npm", "run", "start"]
