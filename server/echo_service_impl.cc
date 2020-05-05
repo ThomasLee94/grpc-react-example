@@ -23,7 +23,7 @@
 #include <unistd.h>
 #include <string>
 
-#include "src/grpc-web-examples/grpc_react/server/proto/echo.grpc.pb.h"
+#include "server/proto/echo.grpc.pb.h"
 
 using grpc::ServerContext;
 using grpc::ServerWriter;
