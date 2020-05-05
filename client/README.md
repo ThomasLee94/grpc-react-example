@@ -10,6 +10,13 @@ Run the following in `grpc_react/client`
 
   - run `npm run start`
 
+## Deployment Resources
+
+[Kubernetes Concepets](https://kubernetes.io/docs/concepts/)
+[gcloud tutorial](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)
+
+
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
