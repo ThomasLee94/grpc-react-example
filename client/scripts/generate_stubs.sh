@@ -1,6 +1,6 @@
 ROOT_DIR=$(git rev-parse --show-toplevel)
-DIR="$ROOT_DIR/src/grpc-web-examples/grpc_react/server/proto"
-OUT_DIR="$ROOT_DIR/src/grpc-web-examples/grpc_react/client/src/generated/src"
+DIR="$ROOT_DIR/server/proto"
+OUT_DIR="$ROOT_DIR/client/src/generated/src"
 
 rm -r "$OUT_DIR"
 mkdir -p "$OUT_DIR"
