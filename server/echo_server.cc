@@ -16,6 +16,9 @@ void RunServer() {
   EchoServiceImpl service;
   ServerBuilder builder;
   builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+  // Add services
+  grpc::EnableDefaultHealthCheckService(true);
+  // Call health service
   builder.RegisterService(&service);
   std::unique_ptr<Server> server(builder.BuildAndStart());
   server->Wait();
