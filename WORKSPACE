@@ -69,6 +69,24 @@ go_register_toolchains()
 
 apple_rules_dependencies()
 
+# Docker images
+
+load("@io_bazel_rules_docker//container:pull.bzl", "container_pull")
+
+container_pull(
+    name = "nginx_latest",
+    registry = "index.docker.io",
+    repository = "nginx",
+    tag = "latest",
+)
+
+container_pull(
+    name = "envoy_latest",
+    registry = "index.docker.io",
+    repository = "envoyproxy/envoy",
+    tag = "latest",
+)
+
 # Install GRPC Proto
 
 http_archive(
