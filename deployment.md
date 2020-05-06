@@ -1,5 +1,5 @@
 ## Commands with docker & gcloud
-`bazel build -c opt src/docker/...`
+`bazel build -c opt server/docker/...`
 
 `bazel build -c opt server:image.tar`
 
