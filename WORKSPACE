@@ -84,7 +84,7 @@ container_pull(
     name = "envoy_latest",
     registry = "index.docker.io",
     repository = "envoyproxy/envoy",
-    tag = "latest",
+    tag = "v1.14.1",
 )
 
 # Install GRPC Proto
