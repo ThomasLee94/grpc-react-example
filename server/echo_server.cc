@@ -2,6 +2,9 @@
 #include <unistd.h>
 #include <string>
 
+#include "grpc++/grpc++.h"
+#include "grpc++/health_check_service_interface.h"
+
 #include "server/proto/echo.grpc.pb.h"
 #include "echo_service_impl.h"
 
