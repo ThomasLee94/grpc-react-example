@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: edge-envoy
-        image: gcr.io/grpc-react-test/edge_envoy:latest
+        image: gcr.io/grpc-react-test/edge_envoy:v1.14.1
         imagePullPolicy: Always
         ports:
         - containerPort: 80
