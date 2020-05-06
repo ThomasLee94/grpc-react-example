@@ -14,6 +14,7 @@ using grpc::ServerBuilder;
 void RunServer() {
   std::string server_address("0.0.0.0:50051");
   EchoServiceImpl service;
+  // Build the server
   ServerBuilder builder;
   builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
   // Add services

@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: edge-envoy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: edge-envoy
+    spec:
+      containers:
+      - name: edge-envoy
+        image: gcr.io/grpc-react-test/edge_envoy:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 5
+      
