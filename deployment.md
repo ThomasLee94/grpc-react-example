@@ -25,6 +25,8 @@
 
 `docker load -i bazel-bin/server/edge_envoy/image_envoy.tar`
 
+run image locally - `docker run bazel/server/edge_envoy:image_envoy`
+
 `docker tag bazel/server/edge_envoy:image_envoy gcr.io/grpc-react-test/edge-envoy:v1.14.1`
 
 `docker push gcr.io/grpc-react-test/edge-envoy:v1.14.1`
