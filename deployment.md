@@ -1,5 +1,7 @@
 ## Commands with docker & gcloud
 ### Backend
+`gcloud auth login`
+
 `bazel build -c opt server/docker/...`
 
 `bazel build -c opt server:image.tar`
