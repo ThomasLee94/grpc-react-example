@@ -25,9 +25,9 @@
 
 `docker load -i bazel-bin/server/edge_envoy/image_envoy.tar`
 
-`docker tag bazel/server/edge_envoy:image_envoy gcr.io/grpc-react-test/edge_envoy:v1.14.1`
+`docker tag bazel/server/edge_envoy:image_envoy gcr.io/grpc-react-test/edge-envoy:v1.14.1`
 
-`docker push gcr.io/grpc-react-test/edge_envoy:v1.14.1`
+`docker push gcr.io/grpc-react-test/edge-envoy:v1.14.1`
 
 `kubectl apply -f server/edge_envoy/deployment.yaml`
 
