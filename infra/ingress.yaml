@@ -6,11 +6,6 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: test-static
 spec:
   rules:
-  - host: gloofoo.xyz
-    http:
-      paths:
-      - backend:
-          servicePort: http
   - host: edge.gloofoo.xyz
     http:
       paths:
