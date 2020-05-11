@@ -17,8 +17,17 @@ admin:
             route_config:
               name: local_route
               virtual_hosts:
-              - name: local_service
+              - name: health_service
                 domains: ["*"]
+                routes:
+                - match:
+                    path: "/healthz"
+                  direct_response:
+                    body:
+                      inline_string: 'ok'
+                    status: 200
+              - name: local_service
+                domains: ["edge.gloofoo.xyz"]
                 routes:
                 - match: { prefix: "/" }
                   route:
