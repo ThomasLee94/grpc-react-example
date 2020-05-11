@@ -27,4 +27,3 @@ spec:
             - "/bin/grpc_health_client"
           initialDelaySeconds: 30
           periodSeconds: 5
-      

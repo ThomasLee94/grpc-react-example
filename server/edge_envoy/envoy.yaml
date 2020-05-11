@@ -17,6 +17,15 @@ static_resources:
           route_config:
             name: local_route
             virtual_hosts:
+            - name: health_service
+              domains: ["*"]
+              routes:
+              - match:
+                  path: "/healthz"
+                direct_response:
+                  body:
+                    inline_string: 'ok'
+                  status: 200
             - name: local_service
               domains: ["*"]
               routes:
