@@ -27,7 +27,7 @@ static_resources:
                     inline_string: 'ok'
                   status: 200
             - name: local_service
-              domains: ["edge.thomaslee.dev"]
+              domains: ["edge.gloofoo.xyz"]
               routes:
               - match: { prefix: "/" }
                 route:
