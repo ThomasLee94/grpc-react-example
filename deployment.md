@@ -33,6 +33,10 @@ run image locally - `docker run bazel/server/edge_envoy:image_envoy`
 
 `kubectl apply -f server/edge_envoy/deployment.yaml`
 
+`kubectl apply -f infra/microservices/server/service.yaml`
+
+`kubectl apply -f infra/microservices/edge_envoy/service.yaml`
+
 ## Debug
 
 `kubectl describe pod <pod_name>`
