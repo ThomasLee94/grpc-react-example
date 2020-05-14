@@ -14,17 +14,17 @@ spec:
         image: gcr.io/grpc-react-test/edge-envoy:v1.14.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         readinessProbe:
           httpGet:
             path: /healthz
-            port: 80
+            port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 80
+            port: 8080
           initialDelaySeconds: 15
           periodSeconds: 5
       
