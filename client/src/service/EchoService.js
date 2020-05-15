@@ -4,7 +4,7 @@ import { promisify } from 'util';
 import {EchoServiceClient} from '../generated/src/echo_grpc_web_pb';
 import {EchoRequest, EchoResponse} from '../generated/src/echo_pb'
 
-const client = new EchoServiceClient('http://localhost:8080', null, null);
+const client = new EchoServiceClient('http://edge.gloofoo.xyz', null, null);
 
 export async function echoServiceEndpointRPC() {
     const request = new EchoRequest();
